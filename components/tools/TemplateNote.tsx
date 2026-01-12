@@ -27,18 +27,16 @@ const TemplateNote = () => {
 
         const start = textarea.selectionStart;
         const end = textarea.selectionEnd;
+        const scrollTop = textarea.scrollTop;
         const currentText = textarea.value;
         
         let insertion = textToInsert;
         let newCursorPos = start + textToInsert.length;
 
-        // Logic adapted from the provided script
         if (type === 'wrap') {
-            // For code blocks logic from original script
             insertion = textToInsert + '\n';
             newCursorPos = start + textToInsert.length;
         } else if (textToInsert.endsWith('\n')) {
-             // If the inserted text naturally ends with newline
              newCursorPos = start + textToInsert.length;
         }
 
@@ -48,8 +46,9 @@ const TemplateNote = () => {
         saveToStorage(newText);
 
         setTimeout(() => {
-            textarea.focus();
+            textarea.focus({ preventScroll: true });
             textarea.setSelectionRange(newCursorPos, newCursorPos);
+            textarea.scrollTop = scrollTop;
         }, 0);
     };
 
@@ -57,7 +56,7 @@ const TemplateNote = () => {
         const value = e.target.value;
         if (value) {
             insertAtCursor(value + '\n', 'inline');
-            e.target.value = ""; // Reset dropdown
+            e.target.value = ""; 
         }
     };
 
@@ -77,6 +76,10 @@ const TemplateNote = () => {
     const handleManualSave = () => {
         saveToStorage(text);
         showNotification('Saved manually');
+    };
+
+    const preventFocusLoss = (e: React.MouseEvent) => {
+        e.preventDefault();
     };
 
     const showNotification = (msg: string) => {
@@ -114,11 +117,46 @@ const TemplateNote = () => {
                         <div className="h-8 w-px bg-slate-700 mx-1 hidden md:block"></div>
 
                         <div className="flex bg-slate-800 rounded-lg p-1 gap-1">
-                            <button onClick={() => insertAtCursor('# ')} className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" title="Header 1">#</button>
-                            <button onClick={() => insertAtCursor('## ')} className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" title="Header 2">##</button>
-                            <button onClick={() => insertAtCursor('```\n', 'wrap')} className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" title="Code Block">'''</button>
-                            <button onClick={() => insertAtCursor('"""\n', 'wrap')} className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" title="Content Block">"""</button>
-                            <button onClick={() => insertAtCursor('---\n', 'wrap')} className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" title="Divider">---</button>
+                            <button 
+                                onMouseDown={preventFocusLoss}
+                                onClick={() => insertAtCursor('# ')} 
+                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                title="Header 1"
+                            >
+                                #
+                            </button>
+                            <button 
+                                onMouseDown={preventFocusLoss}
+                                onClick={() => insertAtCursor('## ')} 
+                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                title="Header 2"
+                            >
+                                ##
+                            </button>
+                            <button 
+                                onMouseDown={preventFocusLoss}
+                                onClick={() => insertAtCursor('```\n', 'wrap')} 
+                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                title="Code Block"
+                            >
+                                '''
+                            </button>
+                            <button 
+                                onMouseDown={preventFocusLoss}
+                                onClick={() => insertAtCursor('"""\n', 'wrap')} 
+                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                title="Content Block"
+                            >
+                                """
+                            </button>
+                            <button 
+                                onMouseDown={preventFocusLoss}
+                                onClick={() => insertAtCursor('---\n', 'wrap')} 
+                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                title="Divider"
+                            >
+                                ---
+                            </button>
                         </div>
                     </div>
 

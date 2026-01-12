@@ -28,15 +28,15 @@ import TemplateNote from './components/tools/TemplateNote';
 
 const Navigation = ({ onClose }: { onClose?: () => void }) => {
     const navItems = [
-        { path: '/jina', icon: LinkIcon, label: 'Jina Reader' },
-        { path: '/md-to-js', icon: Code2, label: 'MD to String' },
+        { path: '/note', icon: StickyNote, label: 'Temporary Note' },
+        { path: '/dual', icon: Columns, label: 'Dual Textbox' },
+        { path: '/prompt', icon: FileJson, label: 'Prompt Variables' },
+        { path: '/colors', icon: Palette, label: 'Color Pallete' },
         { path: '/splitter', icon: Scissors, label: 'Text Splitter' },
         { path: '/timer', icon: Timer, label: 'Timer' },
-        { path: '/tts', icon: Mic, label: 'Extractor & TTS' },
-        { path: '/prompt', icon: FileJson, label: 'Prompt Template' },
-        { path: '/colors', icon: Palette, label: 'Color Debugger' },
-        { path: '/dual', icon: Columns, label: 'Dual Textbox' },
-        { path: '/note', icon: StickyNote, label: 'Temporary Note' },
+        { path: '/jina', icon: LinkIcon, label: 'Jina Reader' },
+        { path: '/md-to-js', icon: Code2, label: 'MD to String' },
+        { path: '/tts', icon: Mic, label: 'TTS' },
     ];
 
     return (
@@ -54,7 +54,7 @@ const Navigation = ({ onClose }: { onClose?: () => void }) => {
                         }`
                     }
                 >
-                    <item.icon className={`mr-3 h-5 w-5 ${item.label === 'Color Debugger' ? '' : ''}`} />
+                    <item.icon className={`mr-3 h-5 w-5 ${item.label === 'Color Pallete' ? '' : ''}`} />
                     {item.label}
                 </NavLink>
             ))}
@@ -73,10 +73,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             case '/md-to-js': return 'MD to JS String';
             case '/splitter': return 'Text Splitter';
             case '/timer': return 'Timer';
-            case '/tts': return 'TTS Reader';
+            case '/tts': return 'TTS';
             case '/note': return 'Temporary Note';
-            case '/prompt': return 'Prompt Template';
-            case '/colors': return 'Color Debugger';
+            case '/prompt': return 'Prompt Variables';
+            case '/colors': return 'Color Pallete';
             case '/dual': return 'Dual Textbox';
             default: return 'ToolBox';
         }
@@ -152,7 +152,7 @@ const App = () => {
         <HashRouter>
             <Layout>
                 <Routes>
-                    <Route path="/" element={<Navigate to="/jina" replace />} />
+                    <Route path="/" element={<Navigate to="/note" replace />} />
                     <Route path="/jina" element={<JinaMarkdown />} />
                     <Route path="/md-to-js" element={<MarkdownToJs />} />
                     <Route path="/splitter" element={<TextSplitter />} />

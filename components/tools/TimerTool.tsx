@@ -84,7 +84,7 @@ const TimerTool = () => {
                     placeholder="HH"
                     min="0"
                     disabled={isRunning}
-                    className="w-24 p-4 text-3xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all"
+                    className="w-32 py-6 text-4xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <input
                     type="number"
@@ -94,7 +94,7 @@ const TimerTool = () => {
                     min="0"
                     max="59"
                     disabled={isRunning}
-                    className="w-24 p-4 text-3xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all"
+                    className="w-32 py-6 text-4xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <input
                     type="number"
@@ -104,7 +104,7 @@ const TimerTool = () => {
                     min="0"
                     max="59"
                     disabled={isRunning}
-                    className="w-24 p-4 text-3xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all"
+                    className="w-32 py-6 text-4xl bg-slate-800 border-2 border-slate-700 rounded-2xl text-center text-white placeholder-slate-600 focus:border-blue-500 focus:ring-0 outline-none disabled:opacity-30 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                 />
             </div>
 

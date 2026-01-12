@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, ArrowRightLeft } from 'lucide-react';
+import { Copy, Check, ArrowRight } from 'lucide-react';
 
 const MarkdownToJs = () => {
     const [input, setInput] = useState('');
@@ -46,7 +46,7 @@ const MarkdownToJs = () => {
                         className="p-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full shadow-lg hover:shadow-blue-500/25 transition-all transform hover:scale-105 active:scale-95 group"
                         title="Convert"
                     >
-                        <ArrowRightLeft className="w-6 h-6 group-hover:rotate-180 transition-transform duration-500" />
+                        <ArrowRight className="w-6 h-6" />
                     </button>
                 </div>
 

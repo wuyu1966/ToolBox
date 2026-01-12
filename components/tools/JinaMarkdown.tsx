@@ -24,10 +24,10 @@ const JinaMarkdown = () => {
         <div className="h-full flex flex-col items-center justify-center max-w-4xl mx-auto space-y-8 animate-fade-in">
             <div className="text-center space-y-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-slate-100 tracking-tight">
-                    Jina Reader
+                    Jina Reader URL Generator
                 </h1>
                 <p className="text-slate-400 text-lg flex items-center justify-center gap-2">
-                    Turn any URL into LLM-friendly Markdown
+                    Convert any URL to Markdown content using Jina Reader
                     <a href="https://jina.ai/reader/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-400 transition-colors">
                         <ExternalLink className="h-4 w-4" />
                     </a>
