@@ -62,7 +62,7 @@ const Navigation = ({ onClose }: { onClose?: () => void }) => {
     );
 };
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children?: React.ReactNode }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const location = useLocation();
     

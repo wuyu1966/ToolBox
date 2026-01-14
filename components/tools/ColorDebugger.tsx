@@ -51,7 +51,7 @@ const ColorDebugger = () => {
     return (
         <div className="flex flex-col lg:flex-row h-full overflow-hidden bg-slate-900 rounded-2xl shadow-2xl border border-slate-800">
             {/* Sidebar Controls */}
-            <div className="w-full lg:w-96 bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col z-10 font-sans">
+            <div className="w-full lg:w-80 bg-slate-900 border-b lg:border-b-0 lg:border-r border-slate-800 flex flex-col z-10 font-sans shrink-0">
                 <div className="p-4 border-b border-slate-800 bg-slate-900">
                     <h1 className="text-lg font-bold text-slate-200 flex items-center gap-2 uppercase tracking-wider">
                         <Palette className="w-5 h-5 text-blue-500" />
@@ -96,49 +96,48 @@ const ColorDebugger = () => {
             {/* Preview Area */}
             <div 
                 ref={containerRef}
-                className="flex-1 flex items-center justify-center p-4 md:p-8 overflow-hidden relative transition-colors duration-200"
+                className="flex-1 overflow-auto relative transition-colors duration-200"
                 style={{ 
                     ...colors, 
                     backgroundColor: 'var(--c-bg)' 
                 } as React.CSSProperties}
             >
-                {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `radial-gradient(currentColor 1px, transparent 1px)`, backgroundSize: '20px 20px', color: 'var(--c-body)' }}></div>
-
-                <div className="w-full max-w-4xl p-4 md:p-12 transition-all duration-300 transform scale-100 flex flex-col items-center z-10">
-                    
-                    <div className="mb-8 md:mb-12 text-center">
-                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Heading</h1>
-                    </div>
-
-                    <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 md:mb-16 flex-wrap">
-                        <svg width="60" height="60" viewBox="0 0 100 100" className="transform hover:scale-110 transition-transform md:w-20 md:h-20" style={{ color: 'var(--c-shape-1)' }}>
-                            <circle cx="50" cy="50" r="50" fill="currentColor" />
-                        </svg>
-                        <svg width="60" height="60" viewBox="0 0 100 100" className="transform hover:scale-110 transition-transform md:w-20 md:h-20" style={{ color: 'var(--c-shape-2)' }}>
-                            <rect x="10" y="10" width="80" height="80" rx="15" fill="currentColor" />
-                        </svg>
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" className="transform hover:scale-110 transition-transform md:w-20 md:h-20" style={{ color: 'var(--c-shape-3)' }}>
-                             <path d="M12 2L1.5 21h21L12 2z"/>
-                        </svg>
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" className="transform hover:scale-110 transition-transform md:w-20 md:h-20" style={{ color: 'var(--c-shape-4)' }}>
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-
-                    <div className="space-y-4 md:space-y-6 text-center max-w-2xl">
-                        <div className="text-3xl md:text-4xl font-black" style={{ color: 'var(--c-data)' }}>
-                            Key Data Point
+                <div className="min-h-full w-full flex items-center justify-center p-4 md:p-8">
+                    <div className="w-full max-w-3xl mx-auto flex flex-col items-center z-10">
+                        
+                        <div className="mb-6 md:mb-10 text-center">
+                            <h1 className="text-4xl md:text-6xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Heading</h1>
                         </div>
 
-                        <p className="text-lg md:text-xl font-normal leading-relaxed" style={{ color: 'var(--c-body)' }}>
-                            This is the body text. Color hierarchy is crucial for visual flow. Use the panel on the left to experiment with different schemes in real-time.
-                        </p>
+                        <div className="flex justify-center items-center gap-4 md:gap-8 mb-8 md:mb-12 flex-wrap">
+                            <svg width="48" height="48" viewBox="0 0 100 100" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-1)' }}>
+                                <circle cx="50" cy="50" r="50" fill="currentColor" />
+                            </svg>
+                            <svg width="48" height="48" viewBox="0 0 100 100" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-2)' }}>
+                                <rect x="10" y="10" width="80" height="80" rx="15" fill="currentColor" />
+                            </svg>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-3)' }}>
+                                 <path d="M12 2L1.5 21h21L12 2z"/>
+                            </svg>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-4)' }}>
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
 
-                        <hr className="border-t-2 my-6 md:my-8 opacity-20 w-full" style={{ borderColor: 'var(--c-body)' }} />
+                        <div className="space-y-4 md:space-y-6 text-center max-w-xl">
+                            <div className="text-2xl md:text-3xl font-black" style={{ color: 'var(--c-data)' }}>
+                                Key Data Point
+                            </div>
 
-                        <div className="text-sm md:text-base font-medium tracking-wide uppercase" style={{ color: 'var(--c-sub)' }}>
-                            Secondary Info / Tags #TAG01
+                            <p className="text-base md:text-lg font-normal leading-relaxed" style={{ color: 'var(--c-body)' }}>
+                                This is the body text. Color hierarchy is crucial for visual flow. Use the panel on the left to experiment with different schemes in real-time.
+                            </p>
+
+                            <hr className="border-t-2 my-6 opacity-20 w-full" style={{ borderColor: 'var(--c-body)' }} />
+
+                            <div className="text-xs md:text-sm font-medium tracking-wide uppercase" style={{ color: 'var(--c-sub)' }}>
+                                Secondary Info / Tags #TAG01
+                            </div>
                         </div>
                     </div>
                 </div>
