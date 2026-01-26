@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { TOOLS_DATA } from './NotebookLMData';
 import { FileText, Copy, Wand2, Check, Brain, ExternalLink } from 'lucide-react';
@@ -96,7 +97,7 @@ const NotebookLMGenerator = () => {
         <div className="flex flex-col h-full gap-6">
             <div className="flex flex-col lg:flex-row gap-6 flex-1 min-h-0">
                 {/* Left Panel: Configuration */}
-                <div className="w-full lg:w-[420px] flex flex-col gap-6 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-700 shrink-0">
+                <div className="w-full lg:w-7/12 flex flex-col gap-6 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-700 shrink-0">
                     
                     {/* Tool Selector */}
                     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-lg shrink-0">
