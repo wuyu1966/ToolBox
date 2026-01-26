@@ -257,23 +257,23 @@ const PromptGenerator = () => {
     };
 
     const renderPreview = (text: string) => {
-        if (!text) return <p className="text-slate-500 italic text-center">点击"生成提示词"按钮查看预览</p>;
+        if (!text) return <p className="text-slate-500 italic text-center text-xs">点击"生成提示词"按钮查看预览</p>;
         
         // Simple manual parsing to avoid dangerouslySetInnerHTML for everything
         const lines = text.split('\n');
         return lines.map((line, idx) => {
             if (line.startsWith('### **')) {
                 const content = line.replace(/### \*\*(.*?)\*\*/, '$1');
-                return <h3 key={idx} className="font-bold text-lg text-slate-200 mt-4 mb-2">{content}</h3>;
+                return <h3 key={idx} className="font-bold text-sm text-slate-200 mt-2 mb-1">{content}</h3>;
             }
             if (line.trim() === '---') {
-                return <hr key={idx} className="my-4 border-slate-700" />;
+                return <hr key={idx} className="my-2 border-slate-700" />;
             }
             if (line.startsWith('* **')) {
                 const parts = line.match(/\* \*\*(.*?)\*\*: (.*)/);
                 if (parts) {
                     return (
-                        <p key={idx} className="mb-1 text-slate-300">
+                        <p key={idx} className="mb-0.5 text-slate-300 text-xs">
                             <strong className="text-slate-200">• {parts[1]}:</strong> {parts[2]}
                         </p>
                     );
@@ -283,33 +283,33 @@ const PromptGenerator = () => {
                 const parts = line.match(/    \* \*\*(.*?)\*\*: (.*)/);
                 if (parts) {
                     return (
-                        <p key={idx} className="mb-1 ml-6 text-slate-400">
+                        <p key={idx} className="mb-0.5 ml-4 text-slate-400 text-xs">
                             <span className="text-slate-300">• {parts[1]}:</span> {parts[2]}
                         </p>
                     );
                 }
             }
              if (line.startsWith('    * ')) {
-                return <p key={idx} className="mb-1 ml-6 text-slate-400">• {line.replace('    * ', '')}</p>;
+                return <p key={idx} className="mb-0.5 ml-4 text-slate-400 text-xs">• {line.replace('    * ', '')}</p>;
             }
             if (line.startsWith('* ')) {
-                return <p key={idx} className="mb-1 text-slate-300"><strong>•</strong> {line.replace('* ', '')}</p>;
+                return <p key={idx} className="mb-0.5 text-slate-300 text-xs"><strong>•</strong> {line.replace('* ', '')}</p>;
             }
             if (line.trim() === '') return <br key={idx} />;
-            return <p key={idx} className="text-slate-300">{line}</p>;
+            return <p key={idx} className="text-slate-300 text-xs">{line}</p>;
         });
     };
 
     const InputField = ({ label, name, list }: { label: string, name: keyof typeof INITIAL_DATA, list?: string[] }) => (
-        <div className="mb-4">
-            <label className="block text-sm font-medium text-slate-400 mb-1">{label}</label>
+        <div className="mb-2">
+            <label className="block text-xs font-medium text-slate-400 mb-0.5">{label}</label>
             <input 
                 type="text" 
                 name={name}
                 value={formData[name]}
                 onChange={handleInputChange}
                 list={list ? `${name}-options` : undefined}
-                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors"
+                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors text-xs"
             />
             {list && (
                 <datalist id={`${name}-options`}>
@@ -320,40 +320,40 @@ const PromptGenerator = () => {
     );
 
     return (
-        <div className="max-w-7xl mx-auto space-y-6 pb-20">
+        <div className="max-w-7xl mx-auto space-y-3 pb-10">
             {/* Header / Nav Actions */}
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-sm">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-2 bg-slate-900 p-2 rounded-xl border border-slate-800 shadow-sm">
                 <div className="flex items-center">
-                    <Wand2 className="text-blue-500 w-6 h-6 mr-3" />
-                    <span className="font-bold text-xl text-slate-100">Portrait Prompt Generator</span>
+                    <Wand2 className="text-blue-500 w-5 h-5 mr-2" />
+                    <span className="font-bold text-base text-slate-100">Portrait Prompt Generator</span>
                 </div>
-                <div className="flex items-center space-x-4">
-                    <button onClick={handleSaveTemplate} className="flex items-center px-4 py-2 bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 rounded-lg text-sm font-medium transition-colors">
-                        <Save className="w-4 h-4 mr-2" /> 保存模板
+                <div className="flex items-center space-x-2">
+                    <button onClick={handleSaveTemplate} className="flex items-center px-3 py-1.5 bg-blue-600/10 hover:bg-blue-600/20 text-blue-400 rounded-lg text-xs font-medium transition-colors">
+                        <Save className="w-3 h-3 mr-1.5" /> 保存模板
                     </button>
-                    <button onClick={handleLoadTemplate} className="flex items-center px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-sm font-medium transition-colors">
-                        <FolderOpen className="w-4 h-4 mr-2" /> 加载模板
+                    <button onClick={handleLoadTemplate} className="flex items-center px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-medium transition-colors">
+                        <FolderOpen className="w-3 h-3 mr-1.5" /> 加载模板
                     </button>
                 </div>
             </div>
 
             {/* Main Form */}
-            <div className="bg-slate-900 rounded-xl p-6 border border-slate-800 shadow-lg">
-                <h2 className="text-xl font-bold text-slate-200 mb-6 flex items-center">
-                    <Edit3 className="text-blue-500 mr-2 w-5 h-5" /> 提示词配置
+            <div className="bg-slate-900 rounded-xl p-3 border border-slate-800 shadow-lg">
+                <h2 className="text-base font-bold text-slate-200 mb-3 flex items-center">
+                    <Edit3 className="text-blue-500 mr-2 w-4 h-4" /> 提示词配置
                 </h2>
 
-                <div className="space-y-6">
+                <div className="space-y-3">
                     {/* Scene */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">场景</h3>
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">场景</h3>
                         <InputField label="场景描述" name="scene" />
                     </div>
 
                     {/* Subject */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">主体</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">主体</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             <InputField label="性别表现" name="gender" list={["女性", "男性", "中性"]} />
                             <InputField label="年龄段" name="age" />
                             <InputField label="种族" name="race" list={["东亚", "欧洲", "非洲", "美洲", "其他"]} />
@@ -361,18 +361,18 @@ const PromptGenerator = () => {
                             <InputField label="肤色" name="skinTone" list={["浅中性色调", "深中性色调", "冷色调", "暖色调"]} />
                         </div>
 
-                        <div className="mt-5">
-                            <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">发型</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="mt-2">
+                            <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">发型</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                 <InputField label="长度" name="hairLength" />
                                 <InputField label="样式" name="hairStyle" />
                                 <InputField label="颜色" name="hairColor" />
                             </div>
                         </div>
 
-                        <div className="mt-5">
-                            <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">姿势</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="mt-2">
+                            <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">姿势</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                 <InputField label="站姿" name="posture" />
                                 <InputField label="右手" name="rightHand" />
                                 <InputField label="左臂" name="leftArm" />
@@ -380,9 +380,9 @@ const PromptGenerator = () => {
                             </div>
                         </div>
 
-                        <div className="mt-5">
-                            <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">着装</h4>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="mt-2">
+                            <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">着装</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                 <InputField label="上衣" name="top" />
                                 <InputField label="下装" name="bottom" />
                                 <InputField label="袜子" name="socks" />
@@ -392,39 +392,39 @@ const PromptGenerator = () => {
                     </div>
 
                     {/* Environment */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">环境</h3>
-                        <div className="mb-4">
-                            <label className="block text-sm font-medium text-slate-400 mb-1">描述</label>
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">环境</h3>
+                        <div className="mb-2">
+                            <label className="block text-xs font-medium text-slate-400 mb-0.5">描述</label>
                             <textarea 
                                 name="environmentDesc"
                                 value={formData.environmentDesc}
                                 onChange={handleInputChange}
                                 rows={2}
-                                className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors"
+                                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors text-xs"
                             />
                         </div>
-                        <div className="mt-4">
-                            <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">陈设</h4>
-                            <div className="space-y-3">
+                        <div className="mt-2">
+                            <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">陈设</h4>
+                            <div className="space-y-1.5">
                                 {furniture.map((item, idx) => (
                                     <div key={idx} className="flex items-center gap-2">
                                         <input 
                                             type="text" 
                                             value={item}
                                             onChange={(e) => handleArrayChange(idx, e.target.value, setFurniture)}
-                                            className="flex-1 px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200"
+                                            className="flex-1 px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200 text-xs"
                                         />
                                         {idx === furniture.length - 1 ? (
-                                            <button onClick={() => addArrayItem(setFurniture)} className="p-2 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors"><Plus className="w-4 h-4" /></button>
+                                            <button onClick={() => addArrayItem(setFurniture)} className="p-1 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors"><Plus className="w-3 h-3" /></button>
                                         ) : (
-                                            <button onClick={() => removeArrayItem(idx, furniture, setFurniture)} className="p-2 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors"><Minus className="w-4 h-4" /></button>
+                                            <button onClick={() => removeArrayItem(idx, furniture, setFurniture)} className="p-1 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors"><Minus className="w-3 h-3" /></button>
                                         )}
                                     </div>
                                 ))}
                                 {furniture.length > 0 && furniture[furniture.length - 1] !== '' && (
-                                     <button onClick={() => addArrayItem(setFurniture)} className="w-full py-2 border-2 border-dashed border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-600 rounded-lg transition-colors text-sm flex justify-center items-center gap-2">
-                                        <Plus className="w-4 h-4" /> 添加陈设
+                                     <button onClick={() => addArrayItem(setFurniture)} className="w-full py-1.5 border-2 border-dashed border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-600 rounded-lg transition-colors text-xs flex justify-center items-center gap-2">
+                                        <Plus className="w-3 h-3" /> 添加陈设
                                      </button>
                                 )}
                             </div>
@@ -432,9 +432,9 @@ const PromptGenerator = () => {
                     </div>
 
                     {/* Lighting */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">灯光</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">灯光</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                             <InputField label="光源" name="lightSource" />
                             <InputField label="光线质感" name="lightQuality" />
                             <InputField label="白平衡 (K)" name="whiteBalance" />
@@ -442,15 +442,15 @@ const PromptGenerator = () => {
                     </div>
 
                     {/* Camera */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">相机</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">相机</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             <InputField label="模式" name="cameraModel" list={["佳能相机", "尼康相机", "索尼相机", "富士相机"]} />
                             <InputField label="等效焦距 (mm)" name="focalLength" />
                             
                             <div className="md:col-span-2">
-                                <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">曝光</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">曝光</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                                     <InputField label="光圈 (f)" name="aperture" />
                                     <InputField label="感光度 (ISO)" name="iso" />
                                     <InputField label="快门速度 (秒)" name="shutterSpeed" />
@@ -462,8 +462,8 @@ const PromptGenerator = () => {
                             <InputField label="景深" name="depthOfField" />
                             
                             <div className="md:col-span-2">
-                                <h4 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">构图</h4>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">构图</h4>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
                                     <InputField label="宽高比" name="aspectRatio" list={["9:16", "1:1", "3:2", "16:9", "4:3"]} />
                                     <InputField label="角度" name="angle" />
                                     <div className="md:col-span-1">
@@ -475,66 +475,66 @@ const PromptGenerator = () => {
                     </div>
 
                     {/* Negative Prompts */}
-                    <div className="border border-slate-800 rounded-lg p-5 bg-slate-950/30">
-                        <h3 className="font-bold text-lg text-slate-200 mb-4">负面提示词</h3>
-                        <div className="space-y-3">
+                    <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
+                        <h3 className="font-bold text-sm text-slate-200 mb-2">负面提示词</h3>
+                        <div className="space-y-1.5">
                             {negativePrompts.map((item, idx) => (
                                 <div key={idx} className="flex items-center gap-2">
                                     <input 
                                         type="text" 
                                         value={item}
                                         onChange={(e) => handleArrayChange(idx, e.target.value, setNegativePrompts)}
-                                        className="flex-1 px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200"
+                                        className="flex-1 px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200 text-xs"
                                         placeholder="输入负面提示词"
                                     />
-                                    <button onClick={() => removeArrayItem(idx, negativePrompts, setNegativePrompts)} className="p-2 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors"><Minus className="w-4 h-4" /></button>
+                                    <button onClick={() => removeArrayItem(idx, negativePrompts, setNegativePrompts)} className="p-1 bg-red-600 hover:bg-red-500 text-white rounded-lg transition-colors"><Minus className="w-3 h-3" /></button>
                                 </div>
                             ))}
-                            <button onClick={() => addArrayItem(setNegativePrompts)} className="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition-colors flex justify-center items-center gap-2">
-                                <Plus className="w-4 h-4" /> 添加负面提示词
+                            <button onClick={() => addArrayItem(setNegativePrompts)} className="w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition-colors flex justify-center items-center gap-2 text-xs">
+                                <Plus className="w-3 h-3" /> 添加负面提示词
                             </button>
                         </div>
                     </div>
 
                     {/* Actions */}
-                    <div className="flex justify-between pt-4">
-                        <button onClick={handleReset} className="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-sm font-medium transition-colors flex items-center">
-                            <RotateCcw className="w-4 h-4 mr-2" /> 重置
+                    <div className="flex justify-between pt-2">
+                        <button onClick={handleReset} className="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition-colors flex items-center">
+                            <RotateCcw className="w-3 h-3 mr-1.5" /> 重置
                         </button>
-                        <button onClick={generatePrompt} className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition-colors shadow-lg shadow-blue-900/40 flex items-center">
-                            <Wand2 className="w-4 h-4 mr-2" /> 生成提示词
+                        <button onClick={generatePrompt} className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-medium transition-colors shadow-lg shadow-blue-900/40 flex items-center">
+                            <Wand2 className="w-3 h-3 mr-1.5" /> 生成提示词
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Results */}
-            <div ref={resultRef} className="bg-slate-900 rounded-xl p-6 border border-slate-800 shadow-lg">
-                <h2 className="text-xl font-bold text-slate-200 mb-6 flex items-center">
-                    <FileText className="text-blue-500 mr-2 w-5 h-5" /> 生成结果
+            <div ref={resultRef} className="bg-slate-900 rounded-xl p-3 border border-slate-800 shadow-lg">
+                <h2 className="text-base font-bold text-slate-200 mb-3 flex items-center">
+                    <FileText className="text-blue-500 mr-2 w-4 h-4" /> 生成结果
                 </h2>
                 
-                <div className="mb-6">
+                <div className="mb-3">
                     <textarea 
                         value={generatedPrompt}
                         readOnly
                         rows={8}
-                        className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200 font-mono text-sm leading-relaxed resize-none"
+                        className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-200 font-mono text-xs leading-relaxed resize-none"
                     />
                 </div>
 
-                <div className="flex gap-4">
-                    <button onClick={handleCopy} className="flex-1 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-sm font-medium transition-colors flex justify-center items-center">
-                        <Copy className="w-4 h-4 mr-2" /> 复制
+                <div className="flex gap-2">
+                    <button onClick={handleCopy} className="flex-1 px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-medium transition-colors flex justify-center items-center">
+                        <Copy className="w-3 h-3 mr-1.5" /> 复制
                     </button>
-                    <button onClick={handleDownload} className="flex-1 px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-sm font-medium transition-colors flex justify-center items-center">
-                        <Download className="w-4 h-4 mr-2" /> 下载
+                    <button onClick={handleDownload} className="flex-1 px-4 py-1.5 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-medium transition-colors flex justify-center items-center">
+                        <Download className="w-3 h-3 mr-1.5" /> 下载
                     </button>
                 </div>
 
-                <div className="mt-8">
-                    <h3 className="font-semibold text-slate-400 mb-3 text-sm uppercase tracking-wider">预览效果</h3>
-                    <div className="bg-slate-950/50 p-6 rounded-lg border border-slate-800 h-96 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700">
+                <div className="mt-4">
+                    <h3 className="font-semibold text-slate-400 mb-2 text-xs uppercase tracking-wider">预览效果</h3>
+                    <div className="bg-slate-950/50 p-3 rounded-lg border border-slate-800 h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 text-xs">
                         {renderPreview(generatedPrompt)}
                     </div>
                 </div>
@@ -543,22 +543,22 @@ const PromptGenerator = () => {
             {/* Loading Modal */}
             {isLoading && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50">
-                    <div className="bg-slate-900 rounded-xl p-8 shadow-2xl border border-slate-800 flex items-center flex-col gap-4">
-                        <Loader2 className="w-10 h-10 text-blue-500 animate-spin" />
-                        <p className="text-slate-200 font-medium">生成中，请稍候...</p>
+                    <div className="bg-slate-900 rounded-xl p-6 shadow-2xl border border-slate-800 flex items-center flex-col gap-3">
+                        <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+                        <p className="text-slate-200 font-medium text-sm">生成中，请稍候...</p>
                     </div>
                 </div>
             )}
 
             {/* Toast Notification */}
             {notification && (
-                <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-lg shadow-xl border border-slate-700 flex items-center z-50 animate-fade-in-up">
+                <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-4 py-2 rounded-lg shadow-xl border border-slate-700 flex items-center z-50 animate-fade-in-up">
                     {notification.type === 'success' ? (
-                        <CheckCircle className="w-5 h-5 mr-2 text-green-400" />
+                        <CheckCircle className="w-4 h-4 mr-2 text-green-400" />
                     ) : (
-                        <AlertCircle className="w-5 h-5 mr-2 text-red-400" />
+                        <AlertCircle className="w-4 h-4 mr-2 text-red-400" />
                     )}
-                    <span className="font-medium">{notification.message}</span>
+                    <span className="font-medium text-xs">{notification.message}</span>
                 </div>
             )}
         </div>

@@ -3,7 +3,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Audio Overview",
     "roles": {
       "💼 商业决策与分析 (Business Podcast)": {
-        "description": "【商务专用】锁定 50+ 财报细节、50+ 商业议题、50+ 职场人设",
+        "description": "【商务专用】财报细节、商业议题、职场人设",
         "template": "请根据来源资料，生成一段专业的商业 Podcast。\n\n【指令设定】\n\n1. 特定来源范围 (Source Scope)：\n请主持人严格聚焦于资料中的“{source_focus}”。忽略与此无关的杂讯。\n\n2. 特定讨论主题 (Topic Focus)：\n这一集的的核心议题是“{topic}”。请深入探讨其背后的商业逻辑。\n\n3. 特定目标对象 (Target Audience)：\n假设听众是“{audience}”。请调整用词深浅，确保他们能听懂并感兴趣。\n\n4. 主持人角色设定 (Host Persona)：\n主持人 A 与 B 的角色设定为“{persona}”。请展现出该角色的专业度与观点。\n\n5. 对话风格与氛围 (Style & Vibe)：\n整体的对话节奏应该是“{style}”。",
         "vars": {
           "source_focus": [
@@ -104,7 +104,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎓 沉浸式学习与科普 (Immersive Learning)": {
-        "description": "【学习专用】锁定 50+ 知识盲点、50+ 科普主题、50+ 教学人设",
+        "description": "【学习专用】知识盲点、科普主题、教学人设",
         "template": "请根据来源资料，为我生成一段适合学习的 Podcast。\n\n【指令设定】\n\n1. 🔍 特定来源范围 (Source Scope)：\n请主持人聚焦于解释资料中的“{source_focus}”。\n\n2. 🗣️ 特定讨论主题 (Topic Focus)：\n我们今天要搞懂的核心概念是“{topic}”。\n\n3. 👂 特定目标对象 (Target Audience)：\n听众是“{audience}”，请用最适合他们的语言来解释。\n\n4. 🎭 主持人角色设定 (Host Persona)：\n主持人的关係设定为“{persona}”。请透过互动来釐清观念。\n\n5. 🔥 对话风格与氛围 (Style & Vibe)：\n请保持“{style}”的氛围，让学习不无聊。",
         "vars": {
           "source_focus": [
@@ -205,7 +205,7 @@ export const TOOLS_DATA = [
         }
       },
       "🕵️ 深度调查与解密 (Investigation Audio)": {
-        "description": "【调查专用】锁定 50+ 疑点、50+ 悬疑主题、50+ 侦探人设",
+        "description": "【调查专用】疑点、悬疑主题、侦探人设",
         "template": "请根据来源资料，为我生成一段充满悬疑感的调查 Podcast。\n\n【指令设定】\n\n1. 🔍 特定来源范围 (Source Scope)：\n请主持人像侦探一样，放大检视资料中的“{source_focus}”。\n\n2. 🗣️ 特定讨论主题 (Topic Focus)：\n我们正在调查的桉件/谜题是“{topic}”。\n\n3. 👂 特定目标对象 (Target Audience)：\n听众是“{audience}”，他们渴望知道真相。\n\n4. 🎭 主持人角色设定 (Host Persona)：\n主持人的身份是“{persona}”。请展现出怀疑与推理的特质。\n\n5. 🔥 对话风格与氛围 (Style & Vibe)：\n整体的氛围应该是“{style}”。",
         "vars": {
           "source_focus": [
@@ -306,7 +306,7 @@ export const TOOLS_DATA = [
         }
       },
       "⚖️ 观点辩论技场 (Debate Arena)": {
-        "description": "【辩论专用】锁定 50+ 争议点、50+ 辩论主题、50+ 对立人设",
+        "description": "【辩论专用】锁定 争议点、辩论主题、对立人设",
         "template": "请根据来源资料，为我生成一段火花四射的辩论 Podcast。\n\n【指令设定】\n\n1. 🔍 特定来源范围 (Source Scope)：\n请两位主持人针对资料中的“{source_focus}”进行攻防。\n\n2. 🗣️ 特定讨论主题 (Topic Focus)：\n今天的辩题是“{topic}”。\n\n3. 👂 特定目标对象 (Target Audience)：\n听众是“{audience}”，请试图说服他们。\n\n4. 🎭 主持人角色设定 (Host Persona)：\n正方与反方的设定为“{persona}”。请毫不留情地指出对方的逻辑漏洞。\n\n5. 🔥 对话风格与氛围 (Style & Vibe)：\n这场辩论的氛围是“{style}”。",
         "vars": {
           "source_focus": [
@@ -412,7 +412,7 @@ export const TOOLS_DATA = [
     "StudioTool": "DataTable",
     "roles": {
       "🔬 学术与研究分析 (Academic Research)": {
-        "description": "【研究专用】50+ 研究指标複选、50+ 分析维度、50+ 整理逻辑",
+        "description": "【研究专用】研究指标複选、分析维度、整理逻辑",
         "template": "请根据来源资料，建立一份学术研究分析表。\n\n【指令参数】\n\n1. 提取目标 (Target Data)：\n请扫描所有资料，提取关于“{target_data}”的资讯。\n\n2. 栏位设定 (Columns)：\n表格必须包含以下栏位 (请精确填写)：\n{columns__multi}。\n\n3. 分组与排序 (Organization)：\n请依照“{grouping}”的方式来组织表格。\n\n4. 格式规范 (Constraint)：\n{constraint}",
         "vars": {
           "target_data": [
@@ -526,7 +526,7 @@ export const TOOLS_DATA = [
         }
       },
       "📊 商业与市场分析 (Business Analysis)": {
-        "description": "【商务专用】50+ 商业指标複选、50+ 竞品分析、50+ 财报维度",
+        "description": "【商务专用】商业指标複选、竞品分析、财报维度",
         "template": "请根据来源资料，为我建立一份商业分析资料表。\n\n【指令参数】\n\n1. 🎯 提取目标 (Target Data)：\n请专注提取关于“{target_data}”的数据与资讯。\n\n2. 🔢 栏位设定 (Columns)：\n表格必须包含以下关键指标 (KPI)：\n{columns__multi}。\n\n3. 🗂️ 分组与排序 (Organization)：\n请依照“{grouping}”逻辑来整理数据。\n\n4. ⚠️ 格式规范 (Constraint)：\n{constraint}",
         "vars": {
           "target_data": [
@@ -640,7 +640,7 @@ export const TOOLS_DATA = [
         }
       },
       "📝 内容提取与知识管理 (Content Management)": {
-        "description": "【笔记专用】50+ 内容属性複选、50+ 整理逻辑、50+ 知识标籤",
+        "description": "【笔记专用】内容属性複选、整理逻辑、知识标籤",
         "template": "请根据来源资料，为我整理一份内容知识库。\n\n【指令参数】\n\n1. 🎯 提取目标 (Target Data)：\n请从文本中撷取“{target_data}”。\n\n2. 🔢 栏位设定 (Columns)：\n表格需包含以下资讯：\n{columns__multi}。\n\n3. 🗂️ 分组与排序 (Organization)：\n请依照“{grouping}”进行分类整理。\n\n4. ⚠️ 格式规范 (Constraint)：\n{constraint}",
         "vars": {
           "target_data": [
@@ -754,7 +754,7 @@ export const TOOLS_DATA = [
         }
       },
       "🏗️ 专桉与任务管理 (Project Management)": {
-        "description": "【PM 专用】50+ 任务属性複选、50+ 进度管理维度、50+ 风险指标",
+        "description": "【PM 专用】任务属性複选、进度管理维度、风险指标",
         "template": "请根据来源资料，为我建立一份专桉管理表格。\n\n【指令参数】\n\n1. 🎯 提取目标 (Target Data)：\n请从资料中整理出“{target_data}”。\n\n2. 🔢 栏位设定 (Columns)：\n表格需包含以下管理维度：\n{columns__multi}。\n\n3. 🗂️ 分组与排序 (Organization)：\n请依照“{grouping}”来安排任务顺序。\n\n4. ⚠️ 格式规范 (Constraint)：\n{constraint}",
         "vars": {
           "target_data": [
@@ -868,7 +868,7 @@ export const TOOLS_DATA = [
         }
       },
       "🏖️ 生活风格与兴趣 (Lifestyle & Hobby)": {
-        "description": "【生活专用】50+ 旅游/美食/电影属性複选、50+ 个人化整理",
+        "description": "【生活专用】旅游/美食/电影属性複选、个人化整理",
         "template": "请根据来源资料，为我整理一份生活风格资料表。\n\n【指令参数】\n\n1. 🎯 提取目标 (Target Data)：\n请从资料中找出所有关于“{target_data}”的资讯。\n\n2. 🔢 栏位设定 (Columns)：\n表格需包含详细资讯：\n{columns__multi}。\n\n3. 🗂️ 分组与排序 (Organization)：\n请依照“{grouping}”来呈现。\n\n4. ⚠️ 格式规范 (Constraint)：\n{constraint}",
         "vars": {
           "target_data": [
@@ -987,7 +987,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Flash Card",
     "roles": {
       "⚡ 考前极速衝刺 (Exam Cram)": {
-        "description": "【背诵专用】包含 50+ 来源锁定、50+ 必考重点、50+ 记忆格式",
+        "description": "【背诵专用】来源锁定、必考重点、记忆格式",
         "template": "请根据来源资料，制作一套高效率的考前複习卡。\n\n【指令参数】\n\n1. 来源锁定 (Source Scope)：\n请严格限定于资料中的“{source_scope}”，忽略其他次要资讯。\n\n2. 核心主题 (Focus Topic)：\n卡片内容必须集中在“{focus_topic}”，这是考试的热区。\n\n3. 卡片格式 (Card Format)：\n正面：{front_style}\n背面：{back_style}\n\n4. 强制规范 (Constraint)：\n{constraint}",
         "vars": {
           "source_scope": [
@@ -1103,7 +1103,7 @@ export const TOOLS_DATA = [
         }
       },
       "🧠 概念深度理解 (Deep Dive)": {
-        "description": "【理解专用】包含 50+ 逻辑关联、50+ 理论架构、50+ 批判思考",
+        "description": "【理解专用】逻辑关联、理论架构、批判思考",
         "template": "请根据来源资料，为我制作一套帮助深度理解的学习卡。\n\n【指令参数】\n\n1. 🔍 来源锁定 (Source Scope)：\n请深入挖掘资料中的“{source_scope}”。\n\n2. 🎯 核心主题 (Focus Topic)：\n我们不背死书，要彻底搞懂“{focus_topic}”的逻辑。\n\n3. 🃏 卡片格式 (Card Format)：\n正面：{front_style}\n背面：{back_style}\n\n4. ⚠️ 强制规范 (Constraint)：\n{constraint}",
         "vars": {
           "source_scope": [
@@ -1219,7 +1219,7 @@ export const TOOLS_DATA = [
         }
       },
       "🗣️ 语言与专业术语 (Language & Terms)": {
-        "description": "【单字专用】包含 50+ 语言学面向、50+ 记忆策略、50+ 应用场景",
+        "description": "【单字专用】语言学面向、记忆策略、应用场景",
         "template": "请根据来源资料，为我制作一套语言与术语学习卡。\n\n【指令参数】\n\n1. 🔍 来源锁定 (Source Scope)：\n请聚焦于资料中的“{source_scope}”。\n\n2. 🎯 核心主题 (Focus Topic)：\n我要精通“{focus_topic}”的使用方式。\n\n3. 🃏 卡片格式 (Card Format)：\n正面：{front_style}\n背面：{back_style}\n\n4. ⚠️ 强制规范 (Constraint)：\n{constraint}",
         "vars": {
           "source_scope": [
@@ -1335,7 +1335,7 @@ export const TOOLS_DATA = [
         }
       },
       "🛠️ 实战应用与情境 (Scenario & App)": {
-        "description": "【应用专用】包含 50+ 职场情境、50+ 问题解决、50+ 决策练习",
+        "description": "【应用专用】职场情境、问题解决、决策练习",
         "template": "请根据来源资料，为我制作一套实战应用学习卡。\n\n【指令参数】\n\n1. 🔍 来源锁定 (Source Scope)：\n请锁定资料中关于“{source_scope}”的部分。\n\n2. 🎯 核心主题 (Focus Topic)：\n我要训练自己处理“{focus_topic}”的能力。\n\n3. 🃏 卡片格式 (Card Format)：\n正面：{front_style}\n背面：{back_style}\n\n4. ⚠️ 强制规范 (Constraint)：\n{constraint}",
         "vars": {
           "source_scope": [
@@ -1451,7 +1451,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎮 趣味冷知识与游戏 (Trivia & Fun)": {
-        "description": "【娱乐专用】包含 50+ 惊人事实、50+ 猜谜游戏、50+ 互动挑战",
+        "description": "【娱乐专用】惊人事实、猜谜游戏、互动挑战",
         "template": "请根据来源资料，为我制作一套趣味十足的学习卡。\n\n【指令参数】\n\n1. 🔍 来源锁定 (Source Scope)：\n请挖掘资料中“{source_scope}”的有趣内容。\n\n2. 🎯 核心主题 (Focus Topic)：\n主题是“{focus_topic}”，要让人觉得好玩又长知识。\n\n3. 🃏 卡片格式 (Card Format)：\n正面：{front_style}\n背面：{back_style}\n\n4. ⚠️ 强制规范 (Constraint)：\n{constraint}",
         "vars": {
           "source_scope": [
@@ -1572,7 +1572,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Infographic",
     "roles": {
       "🏢 商业数据可视化 (Business Data Visualization)": {
-        "description": "【商务专用】50+ 专业风格、50+ 企业配色、50+ 数据重点複选",
+        "description": "【商务专用】专业风格、企业配色、数据重点複选",
         "template": "请根据来源资料，生成一张专业的商业资讯图表。\n\n【指令参数】\n\n1. 视觉风格 (Visual Style)：\n请採用“{style}”设计风格，展现专业度。\n\n2. 配色方桉 (Color Scheme)：\n使用“{color}”作为主色调，确保阅读舒适性。\n\n3. 重点内容 (Key Content)：\n请在图表中强调以下关键资讯 (可多选)：\n{content__multi}。\n\n4. 版面佈局 (Layout)：\n请依照“{layout}”的逻辑来排列资讯。\n\n5. 沟通目标 (Goal)：\n这张图表的目的是“{goal}”，请确保一眼就能看懂结论。",
         "vars": {
           "style": [
@@ -1688,7 +1688,7 @@ export const TOOLS_DATA = [
         }
       },
       "🏫 教学与科普图解 (Edu Graphic)": {
-        "description": "【教学专用】50+ 手绘风格、50+ 活泼配色、50+ 知识点複选",
+        "description": "【教学专用】手绘风格、活泼配色、知识点複选",
         "template": "请根据来源资料，为我制作一张易于理解的科普图解。\n\n【指令参数】\n\n1. 🎨 视觉风格 (Visual Style)：\n请採用“{style}”，让知识变得生动有趣。\n\n2. 🎨 配色方桉 (Color Scheme)：\n使用“{color}”来吸引读者注意力。\n\n3. 📊 重点内容 (Key Content)：\n请将以下知识点转化为视觉图像 (可多选)：\n{content__multi}。\n\n4. 📐 版面佈局 (Layout)：\n请依照“{layout}”来引导阅读视线。\n\n5. 🎯 沟通目标 (Goal)：\n这张图的目的是“{goal}”，请确保小学生也能看懂。",
         "vars": {
           "style": [
@@ -1804,7 +1804,7 @@ export const TOOLS_DATA = [
         }
       },
       "📢 行销与社群图文 (Social Media)": {
-        "description": "【社群专用】50+ 爆款风格、50+ 吸睛配色、50+ 互动元素複选",
+        "description": "【社群专用】爆款风格、吸睛配色、互动元素複选",
         "template": "请根据来源资料，为我制作一张适合社群分享的吸睛图文。\n\n【指令参数】\n\n1. 🎨 视觉风格 (Visual Style)：\n请採用“{style}”，以获得最高的按讚与分享。\n\n2. 🎨 配色方桉 (Color Scheme)：\n使用“{color}”来抓住滑动中的目光。\n\n3. 📊 重点内容 (Key Content)：\n请提炼以下高价值内容 (可多选)：\n{content__multi}。\n\n4. 📐 版面佈局 (Layout)：\n请依照“{layout}”设计，适合手机阅读。\n\n5. 🎯 沟通目标 (Goal)：\n这张图的目的是“{goal}”，请加入强烈的行动呼吁 (CTA)。",
         "vars": {
           "style": [
@@ -1920,7 +1920,7 @@ export const TOOLS_DATA = [
         }
       },
       "🗺️ 流程与地图导览 (Process & Map)": {
-        "description": "【导览专用】50+ 结构风格、50+ 指示配色、50+ 步骤複选",
+        "description": "【导览专用】结构风格、指示配色、步骤複选",
         "template": "请根据来源资料，为我制作一张清晰的流程或地图导览。\n\n【指令参数】\n\n1. 🎨 视觉风格 (Visual Style)：\n请採用“{style}”，强调路径与方向感。\n\n2. 🎨 配色方桉 (Color Scheme)：\n使用“{color}”来区分不同阶段或区域。\n\n3. 📊 重点内容 (Key Content)：\n请标示出以下关键节点 (可多选)：\n{content__multi}。\n\n4. 📐 版面佈局 (Layout)：\n请依照“{layout}”来绘制路径。\n\n5. 🎯 沟通目标 (Goal)：\n这张图的目的是“{goal}”，请确保使用者不会迷路。",
         "vars": {
           "style": [
@@ -2036,7 +2036,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎨 创意与艺术海报 (Creative Poster)": {
-        "description": "【艺术专用】50+ 艺术流派、50+ 氛围配色、50+ 抽象概念複选",
+        "description": "【艺术专用】艺术流派、氛围配色、抽象概念複选",
         "template": "请根据来源资料，为我创作一张极具艺术感的海报。\n\n【指令参数】\n\n1. 🎨 视觉风格 (Visual Style)：\n请模彷“{style}”的艺术手法，创造视觉衝击。\n\n2. 🎨 配色方桉 (Color Scheme)：\n使用“{color}”来传达特定的情绪与氛围。\n\n3. 📊 重点内容 (Key Content)：\n请将以下抽象概念转化为具象画面 (可多选)：\n{content__multi}。\n\n4. 📐 版面佈局 (Layout)：\n请採用“{layout}”的构图方式。\n\n5. 🎯 沟通目标 (Goal)：\n这张海报的目的是“{goal}”，请留下深刻的印象。",
         "vars": {
           "style": [
@@ -2157,7 +2157,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Quiz",
     "roles": {
       "♾️ 万能出题引擎 (Universal Quiz Engine)": {
-        "description": "【五维度全自订】包含考核焦点、题型、人设、难度与解析标准",
+        "description": "【五维度】考核焦点、题型、人设、难度与解析标准",
         "template": "请根据来源资料，设计一份测验。\n\n我的出题主题是：“{topic}”。\n\n为了确保测验品质，请严格遵守以下 5 大出题参数：\n\n1. 【 考核焦点 Scope】：\n请专注于考核资料中的“{scope}”。请忽略与此无关的杂讯。\n\n2. 【 题型设计 Format】：\n题目必须採用“{format}”的形式。不要出简单的直观题。\n\n3. 【 考官人设 Persona】：\n请扮演“{persona}”来出题。你的语气、选词用字、以及对细节的要求都要符合这个身份。\n\n4. 【 认知目标 Goal】：\n这份测验的目的是要测试我的“{goal}”能力。\n\n5. 【 解析标准 Criteria】：\n在每一题的最后，请提供“{criteria}”。",
         "vars": {
           "topic": "在此输入你要考的章节/主题 (例如：第二章、行销策略、历史事件)",
@@ -2379,7 +2379,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Slide Deck",
     "roles": {
       "💼 商务募资与提桉 (Business Pitch)": {
-        "description": "【商务专用】包含 50+ 专业背景风格、50+ 提桉架构、50+ 高管视角",
+        "description": "【商务专用】专业背景风格、提桉架构、高管视角",
         "template": "请根据来源资料，建立一份专业的商务简报。\n\n【设定参数】\n1. 背景与视觉风格 (Background)：\n每一页投影片的视觉设计，请採用“{background_style}”。请在 Speaker Notes 中详细描述每一页的配图建议。\n\n2. 提桉者人设 (Presenter)：\n你是“{persona}”。请用充满自信、专业且具说服力的语气来撰写内容。\n\n3. 目标受众 (Audience)：\n这场简报的听众是“{audience}”。请针对他们的痛点与利益进行沟通。\n\n4. 简报架构 (Structure)：\n请严格遵守“{structure}”的逻辑框架来编排投影片顺序。\n\n5. 核心诉求 (Key Message)：\n整份简报必须围绕着“{focus_topic}”这个核心目标，并在结尾提出强力的 Call to Action。",
         "vars": {
           "background_style": [
@@ -2507,7 +2507,7 @@ export const TOOLS_DATA = [
         }
       },
       "🏫 学术研究与教学 (Academic & Edu)": {
-        "description": "【学术专用】包含 50+ 学术背景风格、50+ 研究架构、50+ 教授视角",
+        "description": "【学术专用】学术背景风格、研究架构、教授视角",
         "template": "请根据来源资料，为我建立一份严谨的学术简报。\n\n【设定参数】\n1. 🖼️ 背景与视觉风格 (Background)：\n每一页投影片的视觉设计，请採用“{background_style}”。重点在于清晰展示图表与引用来源。\n\n2. 🗣️ 提桉者人设 (Presenter)：\n你是“{persona}”。请用客观、严谨且逻辑缜密的语气。\n\n3. 🎯 目标受众 (Audience)：\n这场简报的听众是“{audience}”。请注意专有名词的解释深度。\n\n4. 📝 简报架构 (Structure)：\n请严格遵守“{structure}”的学术规范来编排。\n\n5. 🔑 核心诉求 (Key Message)：\n简报重点在于探讨“{focus_topic}”，并在结尾提出研究限制与未来展望。",
         "vars": {
           "background_style": [
@@ -2627,7 +2627,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎨 创意风格与视觉 (Creative & Design)": {
-        "description": "【设计专用】包含 50+ 艺术背景风格、50+ 创意架构、50+ 艺术家视角",
+        "description": "【设计专用】艺术背景风格、创意架构、艺术家视角",
         "template": "请根据来源资料，为我建立一份极具视觉衝击力的创意简报。\n\n【设定参数】\n1. 🖼️ 背景与视觉风格 (Background)：\n这是最重要的部分。每一页投影片必须像是一幅艺术品，风格为“{background_style}”。请详细描述色彩、构图与意境。\n\n2. 🗣️ 提桉者人设 (Presenter)：\n你是“{persona}”。请用感性、诗意且充满想像力的语气。\n\n3. 🎯 目标受众 (Audience)：\n这场简报的听众是“{audience}”。请触动他们的情感与右脑。\n\n4. 📝 简报架构 (Structure)：\n请打破传统，採用“{structure}”来叙事。\n\n5. 🔑 核心诉求 (Key Message)：\n我们要传达的核心概念是“{focus_topic}”，请用视觉隐喻来呈现。",
         "vars": {
           "background_style": [
@@ -2751,7 +2751,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎤 公众演讲与故事 (Public Speaking)": {
-        "description": "【演讲专用】包含 50+ 舞台背景风格、50+ 叙事架构、50+ 演说家视角",
+        "description": "【演讲专用】舞台背景风格、叙事架构、演说家视角",
         "template": "请根据来源资料，为我撰写一份震撼人心的演讲简报。\n\n【设定参数】\n1. 🖼️ 背景与视觉风格 (Background)：\n投影片只是辅助，重点是氛围。请採用“{background_style}”，图片要具备强烈的情感张力。\n\n2. 🗣️ 提桉者人设 (Presenter)：\n你是“{persona}”。请用富有感染力、幽默且真诚的口吻。\n\n3. 🎯 目标受众 (Audience)：\n这场简报的听众是“{audience}”。请建立与他们的情感连结。\n\n4. 📝 简报架构 (Structure)：\n请採用“{structure}”来铺陈故事的高潮迭起。\n\n5. 🔑 核心诉求 (Key Message)：\n我们要在观众心中种下的种子是“{focus_topic}”，请用一个动人的故事来包装。",
         "vars": {
           "background_style": [
@@ -2872,7 +2872,7 @@ export const TOOLS_DATA = [
         }
       },
       "📊 数据分析与汇报 (Data & Report)": {
-        "description": "【数据专用】包含 50+ 图表背景风格、50+ 分析架构、50+ 分析师视角",
+        "description": "【数据专用】图表背景风格、分析架构、分析师视角",
         "template": "请根据来源资料，为我建立一份精准的数据分析简报。\n\n【设定参数】\n1. 🖼️ 背景与视觉风格 (Background)：\n数据是主角，背景不能抢戏。请採用“{background_style}”，确保图表清晰可读。\n\n2. 🗣️ 提桉者人设 (Presenter)：\n你是“{persona}”。请用客观、中立且洞察力强的语气。\n\n3. 🎯 目标受众 (Audience)：\n这场简报的听众是“{audience}”。他们只关心数据背后的决策意义。\n\n4. 📝 简报架构 (Structure)：\n请採用“{structure}”来呈现数据的逻辑链。\n\n5. 🔑 核心诉求 (Key Message)：\n数据显示的结论是“{focus_topic}”，请用视觉化图表证明这一点。",
         "vars": {
           "background_style": [
@@ -2996,7 +2996,7 @@ export const TOOLS_DATA = [
     "StudioTool": "Video Overview",
     "roles": {
       "💼 商业与职场模式 (Business Mode)": {
-        "description": "【商业专用】包含 30 种商业主题、20 种职场情境、20+ 专业视角",
+        "description": "【商业专用】商业主题、职场情境、专业视角",
         "template": "👉 [栏位 1：视觉风格 Visual Style]\n{visual_style}\n\n👉 [栏位 2：AI 主持人指令 Instructions]\n1. 角色与情境设定：\n你是“{perspective}”，我们现在正处于“{scenario}”的场合。\n今天的讨论主题是“{theme}”。请完全沉浸在这个角色中，用符合身份的专业语气进行分析，并展现你的洞察力。\n\n2. 关键数据展示 (Data Highlights)：\n请在影片中制作动态图表，特别强调以下指标，并解释其对决策的影响：\n{data_highlights__multi}。\n\n3. 叙事结构：\n请先从宏观市场切入，接着用数据佐证你的观点，最后针对{theme}提出具体的 Action Plan。",
         "vars": {
           "visual_style": [
@@ -3112,7 +3112,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎓 儿童与科普模式 (Education Mode)": {
-        "description": "【科普专用】包含 30 种趣味主题、20 种教学情境、20+ 亲切视角",
+        "description": "【科普专用】趣味主题、教学情境、亲切视角",
         "template": "👉 [栏位 1：视觉风格 Visual Style]\n{visual_style}\n\n👉 [栏位 2：AI 主持人指令 Instructions]\n1. 角色与情境设定：\n你是“{perspective}”，正在进行一场“{scenario}”的冒险。\n我们要探索的主题是“{theme}”。请用充满好奇与想像力的语气，把複杂的知识变成好玩的故事。\n\n2. 趣味亮点 (Fun Facts)：\n请不要列出无聊的数据，而是将以下资讯视觉化，让学习变得超级有趣：\n{data_highlights__multi}。\n\n3. 互动引导：\n请多用“你知道吗？”或“猜猜看”来引导观众思考，并用具体的比喻来解释{theme}。",
         "vars": {
           "visual_style": [
@@ -3228,7 +3228,7 @@ export const TOOLS_DATA = [
         }
       },
       "🕵️ 悬疑与侦探模式 (Mystery Mode)": {
-        "description": "【调查专用】包含 30 种悬疑主题、20 种调查情境、20+ 侦探视角",
+        "description": "【调查专用】悬疑主题、调查情境、侦探视角",
         "template": "👉 [栏位 1：视觉风格 Visual Style]\n{visual_style}\n\n👉 [栏位 2：AI 主持人指令 Instructions]\n1. 角色与情境设定：\n你是“{perspective}”，正在“{scenario}”寻找真相。\n目前的桉件主题是“{theme}”。请用怀疑、谨慎、逻辑缜密的语气，审视这份资料中的每一个细节。\n\n2. 关键线索 (Clues)：\n请放大检视以下异常数据，它们是解开谜题的关键：\n{data_highlights__multi}。\n\n3. 推理过程：\n请用演绎法（Deduction），将看似无关的线索串联起来，揭露隐藏在{theme}背后的真相。",
         "vars": {
           "visual_style": [
@@ -3344,7 +3344,7 @@ export const TOOLS_DATA = [
         }
       },
       "🎨 创意与情感模式 (Creative Mode)": {
-        "description": "【艺术专用】包含 30 种感性主题、20 种艺术情境、20+ 创意视角",
+        "description": "【艺术专用】感性主题、艺术情境、创意视角",
         "template": "👉 [栏位 1：视觉风格 Visual Style]\n{visual_style}\n\n👉 [栏位 2：AI 主持人指令 Instructions]\n1. 角色与情境设定：\n你是“{perspective}”，身处于“{scenario}”之中。\n面对“{theme}”这个主题，请不要只看冷冰冰的资讯，而是要解读背后的“人性”、“情感”与“美学”。\n\n2. 情感共鸣 (Emotional Beats)：\n请透过画面与音乐，呈现以下情感元素，让观众产生强烈的灵魂共鸣：\n{data_highlights__multi}。\n\n3. 艺术昇华：\n请用诗意的语言，将这份资料转化为一场视听飨宴，并在结尾留下无尽的韵味。",
         "vars": {
           "visual_style": [
@@ -3460,7 +3460,7 @@ export const TOOLS_DATA = [
         }
       },
       "⚖️ 辩论与批判模式 (Critical Mode)": {
-        "description": "【批判专用】包含 30 种争议主题、20 种辩论情境、20+ 批判视角",
+        "description": "【批判专用】争议主题、辩论情境、批判视角",
         "template": "👉 [栏位 1：视觉风格 Visual Style]\n{visual_style}\n\n👉 [栏位 2：AI 主持人指令 Instructions]\n1. 角色与情境设定：\n你是“{perspective}”，正在参加一场“{scenario}”。\n针对“{theme}”这个议题，请不要轻信表面的资料。你的任务是挑战权威、揭露漏洞，进行无情的批判。\n\n2. 争议焦点 (Debate Points)：\n请针对以下弱点进行勐烈抨击，并展示反面证据：\n{data_highlights__multi}。\n\n3. 反思总结：\n请提出尖锐的问题：如果不解决这些问题，社会将付出什么代价？",
         "vars": {
           "visual_style": [

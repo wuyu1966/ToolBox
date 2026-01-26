@@ -146,7 +146,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
                 </div>
                 
                 <main className="flex-1 relative overflow-y-auto focus:outline-none scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
-                    <div className="h-full p-4 sm:p-6 lg:p-8">
+                    <div className="h-full p-2 sm:p-4">
                          {children}
                     </div>
                 </main>
