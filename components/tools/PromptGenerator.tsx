@@ -33,7 +33,7 @@ const INITIAL_DATA = {
     iso: "100",
     shutterSpeed: "0.01",
     exposureComp: "-0.3",
-    focus: "对焦于镜中影像的躯干和短裤",
+    focus: "对焦于镜中影像的躯干和长裙",
     depthOfField: "人物大特写",
     aspectRatio: "9:16",
     angle: "特写",
