@@ -49,11 +49,11 @@ const PromptTemplate = () => {
     };
 
     return (
-        <div className="flex flex-col lg:flex-row gap-6 h-full">
-            {/* Left Column: Template & Variables */}
-            <div className="flex-1 flex flex-col gap-6 min-h-0">
+        <div className="flex flex-col gap-6 h-full">
+            {/* Top Row: Template & Variables side by side */}
+            <div className="flex flex-col lg:flex-row gap-6 min-h-0 h-[55%]">
                 {/* Template Input */}
-                <div className="flex-[2] bg-slate-900 rounded-2xl border border-slate-800 flex flex-col overflow-hidden shadow-lg">
+                <div className="flex-1 bg-slate-900 rounded-2xl border border-slate-800 flex flex-col overflow-hidden shadow-lg">
                     <div className="px-4 py-3 border-b border-slate-800 bg-slate-900 flex justify-between items-center">
                         <h2 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
                             <Settings className="w-4 h-4" /> Template
@@ -91,7 +91,7 @@ const PromptTemplate = () => {
                                         value={values[v] || ''}
                                         onChange={(e) => handleValueChange(v, e.target.value)}
                                         rows={2}
-                                        className="w-full bg-slate-800 p-2 rounded-lg border border-slate-700 focus:border-blue-500 outline-none text-sm text-slate-200 resize-none font-sans"
+                                        className="w-full bg-slate-800 p-2 rounded-lg border border-slate-700 focus:border-blue-500 outline-none text-sm text-slate-200 resize-y font-sans min-h-[80px]"
                                     />
                                 </div>
                             ))
@@ -100,7 +100,7 @@ const PromptTemplate = () => {
                 </div>
             </div>
 
-            {/* Right Column: Result */}
+            {/* Bottom Row: Result spanning full width */}
             <div className="flex-1 bg-slate-900 rounded-2xl border border-slate-800 flex flex-col overflow-hidden shadow-lg min-h-0">
                 <div className="px-4 py-3 border-b border-slate-800 bg-slate-900 flex justify-between items-center">
                     <h2 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
@@ -110,11 +110,11 @@ const PromptTemplate = () => {
                         onClick={() => copyToClipboard(output)} 
                         className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded-lg text-xs font-bold text-white transition-colors flex items-center gap-1.5 shadow-lg shadow-blue-900/20"
                     >
-                        <Copy className="w-3 h-3" /> Copy
+                        <Copy className="w-3 h-3" /> Copy Result
                     </button>
                 </div>
                 <div className="flex-1 w-full bg-slate-950/50 p-4 text-slate-200 overflow-auto whitespace-pre-wrap font-mono text-sm leading-relaxed scrollbar-thin scrollbar-thumb-slate-700">
-                    {output}
+                    {output || <span className="text-slate-600 italic">Generated prompt will appear here...</span>}
                 </div>
             </div>
         </div>
