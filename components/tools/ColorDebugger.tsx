@@ -8,6 +8,7 @@ const DEFAULTS = {
     '--c-shape-2': '#879a39',
     '--c-shape-3': '#8b7ec8',
     '--c-shape-4': '#3aa99f',
+    '--c-shape-5': '#4385BE',
     '--c-data': '#a31a1a',
     '--c-body': '#FFFFFF',
     '--c-sub': '#878580'
@@ -72,6 +73,7 @@ const ColorDebugger = () => {
                             <ControlRow label="Shape 2" cssVar="--c-shape-2" />
                             <ControlRow label="Shape 3" cssVar="--c-shape-3" />
                             <ControlRow label="Shape 4" cssVar="--c-shape-4" />
+                            <ControlRow label="Shape 5" cssVar="--c-shape-5" />
                         </div>
                     </div>
 
@@ -121,6 +123,9 @@ const ColorDebugger = () => {
                             </svg>
                             <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-4)' }}>
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 md:w-16 md:h-16 transform hover:scale-110 transition-transform" style={{ color: 'var(--c-shape-5)' }}>
+                                <path d="M12 2L22 12L12 22L2 12Z"/>
                             </svg>
                         </div>
 
