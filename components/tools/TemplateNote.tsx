@@ -120,7 +120,7 @@ const TemplateNote = () => {
                             <button 
                                 onMouseDown={preventFocusLoss}
                                 onClick={() => insertAtCursor('# ')} 
-                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                className="px-3 py-1.5 bg-slate-700 border border-slate-600 hover:bg-slate-600 rounded text-slate-200 hover:text-white font-mono text-sm font-bold transition-colors shadow-sm" 
                                 title="Header 1"
                             >
                                 #
@@ -128,7 +128,7 @@ const TemplateNote = () => {
                             <button 
                                 onMouseDown={preventFocusLoss}
                                 onClick={() => insertAtCursor('## ')} 
-                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                className="px-3 py-1.5 bg-slate-700 border border-slate-600 hover:bg-slate-600 rounded text-slate-200 hover:text-white font-mono text-sm font-bold transition-colors shadow-sm" 
                                 title="Header 2"
                             >
                                 ##
@@ -136,7 +136,7 @@ const TemplateNote = () => {
                             <button 
                                 onMouseDown={preventFocusLoss}
                                 onClick={() => insertAtCursor('```\n', 'wrap')} 
-                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                className="px-3 py-1.5 bg-slate-700 border border-slate-600 hover:bg-slate-600 rounded text-slate-200 hover:text-white font-mono text-sm font-bold transition-colors shadow-sm" 
                                 title="Code Block"
                             >
                                 '''
@@ -144,7 +144,7 @@ const TemplateNote = () => {
                             <button 
                                 onMouseDown={preventFocusLoss}
                                 onClick={() => insertAtCursor('"""\n', 'wrap')} 
-                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                className="px-3 py-1.5 bg-slate-700 border border-slate-600 hover:bg-slate-600 rounded text-slate-200 hover:text-white font-mono text-sm font-bold transition-colors shadow-sm" 
                                 title="Content Block"
                             >
                                 """
@@ -152,7 +152,7 @@ const TemplateNote = () => {
                             <button 
                                 onMouseDown={preventFocusLoss}
                                 onClick={() => insertAtCursor('---\n', 'wrap')} 
-                                className="px-3 py-1.5 hover:bg-slate-700 rounded text-slate-300 hover:text-white font-mono text-sm font-bold transition-colors" 
+                                className="px-3 py-1.5 bg-slate-700 border border-slate-600 hover:bg-slate-600 rounded text-slate-200 hover:text-white font-mono text-sm font-bold transition-colors shadow-sm" 
                                 title="Divider"
                             >
                                 ---
