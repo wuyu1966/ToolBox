@@ -4,13 +4,13 @@ import { RotateCcw, Palette, Copy, Check } from 'lucide-react';
 const DEFAULTS = {
     '--c-bg': '#050A15',
     '--c-title': '#FFFFFF',
-    '--c-shape-1': '#da702c',
-    '--c-shape-2': '#879a39',
-    '--c-shape-3': '#8b7ec8',
-    '--c-shape-4': '#3aa99f',
+    '--c-shape-1': '#3AA99F',
+    '--c-shape-2': '#DA702C',
+    '--c-shape-3': '#879A39',
+    '--c-shape-4': '#8B7EC8',
     '--c-shape-5': '#4385BE',
     '--c-shape-6': '#d0a215',
-    '--c-data': '#ef4444',
+    '--c-data': '#AF3029',
     '--c-body': '#cbd5e1',
     '--c-sub': '#64748b'
 };
