@@ -137,58 +137,58 @@ const ColorDebugger = () => {
                     backgroundColor: 'var(--c-bg)' 
                 } as React.CSSProperties}
             >
-                <div className="min-h-full w-full flex items-center justify-center p-6 md:p-12">
-                    <div className="w-full max-w-4xl mx-auto flex flex-col items-center z-10">
+                <div className="min-h-full w-full flex items-center justify-center p-4 md:p-8">
+                    <div className="w-full max-w-3xl mx-auto flex flex-col items-center z-10">
                         
-                        <div className="mb-8 md:mb-16 text-center">
-                            <h1 className="text-4xl md:text-7xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Palette Preview</h1>
+                        <div className="mb-6 md:mb-10 text-center">
+                            <h1 className="text-3xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Palette Preview</h1>
                         </div>
 
                         {/* Shapes Container */}
-                        <div className="flex justify-center items-center gap-4 md:gap-10 mb-10 md:mb-20 flex-wrap">
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-1)' }}>
+                        <div className="flex justify-center items-center gap-3 md:gap-6 mb-6 md:mb-12 flex-wrap">
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-1)' }}>
                                 <circle cx="50" cy="50" r="48" fill="currentColor" />
                             </svg>
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-2)' }}>
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-2)' }}>
                                 <rect x="5" y="5" width="90" height="90" rx="15" fill="currentColor" />
                             </svg>
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-3)' }}>
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-3)' }}>
                                  <path d="M50 5 L95 90 L5 90 Z" fill="currentColor"/>
                             </svg>
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-4)' }}>
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-4)' }}>
                                 <path d="M50 5 L63 35 L95 38 L72 60 L78 92 L50 78 L22 92 L28 60 L5 38 L37 35 Z" fill="currentColor" />
                             </svg>
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-5)' }}>
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-5)' }}>
                                 <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="currentColor" />
                             </svg>
-                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-12 h-12 md:w-20 md:h-20 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-6)' }}>
+                            <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-6)' }}>
                                 <polygon points="50,5 95,50 50,95 5,50" fill="currentColor" />
                             </svg>
                         </div>
 
                         {/* Content Section */}
-                        <div className="w-full rounded-3xl p-6 md:p-10 border border-slate-700/50">
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-                                <h2 className="text-2xl font-bold" style={{ color: 'var(--c-title)' }}>Detailed Analysis</h2>
-                                <span className="px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest" style={{ backgroundColor: 'var(--c-data)', color: 'var(--c-bg)' }}>
+                        <div className="w-full rounded-2xl p-5 md:p-8 border border-slate-700/50">
+                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-6">
+                                <h2 className="text-xl font-bold" style={{ color: 'var(--c-title)' }}>Detailed Analysis</h2>
+                                <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest" style={{ backgroundColor: 'var(--c-data)', color: 'var(--c-bg)' }}>
                                     Live Data Feed
                                 </span>
                             </div>
 
-                            <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--c-body)' }}>
+                            <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--c-body)' }}>
                                 This is a live preview of your color palette. You can see how the background, 
                                 titles, body text, and UI shapes interact with each other in a real-world layout.
                                 Adjust the values on the left to fine-tune your design's accessibility and visual appeal.
                             </p>
 
-                            <div className="flex flex-wrap gap-4">
-                                <div className="flex-1 min-w-[200px] p-4 rounded-xl border border-slate-800">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest mb-2" style={{ color: 'var(--c-sub)' }}>Accessibility Score</h4>
-                                    <div className="text-3xl font-mono font-bold" style={{ color: 'var(--c-data)' }}>98/100</div>
+                            <div className="flex flex-wrap gap-3">
+                                <div className="flex-1 min-w-[150px] p-3 rounded-lg border border-slate-800">
+                                    <h4 className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: 'var(--c-sub)' }}>Accessibility Score</h4>
+                                    <div className="text-2xl font-mono font-bold" style={{ color: 'var(--c-data)' }}>98/100</div>
                                 </div>
-                                <div className="flex-1 min-w-[200px] p-4 rounded-xl border border-slate-800">
-                                    <h4 className="text-[10px] font-black uppercase tracking-widest mb-2" style={{ color: 'var(--c-sub)' }}>Contrast Ratio</h4>
-                                    <div className="text-3xl font-mono font-bold" style={{ color: 'var(--c-data)' }}>14.2:1</div>
+                                <div className="flex-1 min-w-[150px] p-3 rounded-lg border border-slate-800">
+                                    <h4 className="text-[10px] font-black uppercase tracking-widest mb-1" style={{ color: 'var(--c-sub)' }}>Contrast Ratio</h4>
+                                    <div className="text-2xl font-mono font-bold" style={{ color: 'var(--c-data)' }}>14.2:1</div>
                                 </div>
                             </div>
                         </div>
