@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { HashRouter, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
 import { 
@@ -14,7 +15,8 @@ import {
     X,
     Wrench,
     Wand2,
-    Brain
+    Brain,
+    Sparkles
 } from 'lucide-react';
 
 // Tool Components
@@ -29,12 +31,14 @@ import DualTextbox from './components/tools/DualTextbox';
 import TemplateNote from './components/tools/TemplateNote';
 import PromptGenerator from './components/tools/PromptGenerator';
 import NotebookLMGenerator from './components/tools/NotebookLMGenerator';
+import NotebookLMLab from './components/tools/NotebookLMLab';
 
 const Navigation = ({ onClose }: { onClose?: () => void }) => {
     const navItems = [
         { path: '/note', icon: StickyNote, label: 'Temporary Note' },
         { path: '/dual', icon: Columns, label: 'Dual Textbox' },
         { path: '/prompt', icon: FileJson, label: 'Prompt Variables' },
+        { path: '/notebook-lab', icon: Sparkles, label: 'NotebookLM Prompt 2' },
         { path: '/notebook-lm', icon: Brain, label: 'NotebookLM Prompt' },
         { path: '/generator', icon: Wand2, label: 'Portrait Prompt Gen' },
         { path: '/colors', icon: Palette, label: 'Color Pallete' },
@@ -76,6 +80,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
     const getTitle = () => {
         switch(location.pathname) {
             case '/generator': return 'Portrait Prompt Gen';
+            case '/notebook-lab': return 'NotebookLM Prompt 2';
             case '/notebook-lm': return 'NotebookLM Prompt';
             case '/jina': return 'Jina Reader';
             case '/md-to-js': return 'MD to JS String';
@@ -162,6 +167,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Navigate to="/note" replace />} />
                     <Route path="/generator" element={<PromptGenerator />} />
+                    <Route path="/notebook-lab" element={<NotebookLMLab />} />
                     <Route path="/notebook-lm" element={<NotebookLMGenerator />} />
                     <Route path="/jina" element={<JinaMarkdown />} />
                     <Route path="/md-to-js" element={<MarkdownToJs />} />
