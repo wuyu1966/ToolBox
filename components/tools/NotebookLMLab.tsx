@@ -221,11 +221,11 @@ const NotebookLMLab = () => {
     }, [isResizing]);
 
     const GridSection = ({ label, items, stateKey, isMulti, isColor }: any) => (
-        <div className="mb-4">
-            <h3 className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-2">
-                {label} {isMulti && <span className="text-[9px] text-blue-500 opacity-70 normal-case">(MULTIPLE)</span>}
+        <div className="mb-6">
+            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                {label} {isMulti && <span className="text-[11px] text-blue-500 opacity-70 normal-case">(MULTIPLE)</span>}
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
                 {items.map((item: any) => {
                     const isActive = isMulti 
                         ? selections.notes.some(n => n.id === item.id)
@@ -235,17 +235,17 @@ const NotebookLMLab = () => {
                         <button
                             key={item.id}
                             onClick={() => isMulti ? toggleNote(item) : handleSingleSelect(stateKey, item)}
-                            className={`px-3 py-1.5 rounded-lg text-[10px] font-bold transition-all border flex flex-col items-center justify-center min-w-[70px] ${
+                            className={`px-4 py-2 rounded-lg text-xs font-bold transition-all border flex flex-col items-center justify-center min-w-[80px] ${
                                 isActive 
                                 ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-900/20' 
-                                : 'bg-slate-800 border-slate-700 text-slate-400 hover:border-slate-500'
+                                : 'bg-slate-800 border-slate-700 text-slate-200 hover:border-slate-500'
                             }`}
                         >
                             <span className="truncate w-full">{item.label}</span>
                             {isColor && item.swatches && (
-                                <div className="flex gap-0.5 mt-1">
+                                <div className="flex gap-1 mt-1.5">
                                     {item.swatches.map((c: string, idx: number) => (
-                                        <div key={idx} className="w-2 h-1 rounded-full border border-black/10" style={{ backgroundColor: c }}></div>
+                                        <div key={idx} className="w-3 h-1.5 rounded-full border border-black/10" style={{ backgroundColor: c }}></div>
                                     ))}
                                 </div>
                             )}
@@ -259,17 +259,17 @@ const NotebookLMLab = () => {
     return (
         <div className="h-full flex flex-col gap-4 overflow-hidden">
             {/* Toolbar */}
-            <div className="flex items-center justify-between px-2">
-                <div className="flex items-center gap-2">
-                    <span className="bg-blue-600 text-white px-2 py-0.5 rounded text-[10px] font-black tracking-tighter shadow-sm">P.L.</span>
-                    <h2 className="text-sm font-black text-slate-100 uppercase tracking-widest">NotebookLM Prompt 2</h2>
+            <div className="flex items-center justify-between px-4 py-2">
+                <div className="flex items-center gap-3">
+                    <span className="bg-blue-600 text-white px-2.5 py-1 rounded text-xs font-black tracking-tighter shadow-sm">P.L.</span>
+                    <h2 className="text-base font-black text-slate-100 uppercase tracking-widest">NotebookLM Prompt 2</h2>
                 </div>
                 <div className="flex items-center gap-2">
                     <button 
                         onClick={handleResetAll}
-                        className="text-[10px] font-black text-red-500 hover:text-red-400 border border-red-900/30 bg-red-950/20 px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 uppercase"
+                        className="text-xs font-black text-red-500 hover:text-red-400 border border-red-900/30 bg-red-950/20 px-4 py-2 rounded-lg transition-all flex items-center gap-2 uppercase"
                     >
-                        <XCircle className="w-3 h-3" /> Reset Everything
+                        <XCircle className="w-4 h-4" /> Reset Everything
                     </button>
                 </div>
             </div>
@@ -281,25 +281,25 @@ const NotebookLMLab = () => {
                     className="flex flex-col border-r border-slate-800 bg-slate-900 overflow-hidden" 
                     style={{ flexBasis: `${leftPanelWidth}%` }}
                 >
-                    <div className="flex-1 overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-slate-700">
+                    <div className="flex-1 overflow-y-auto p-5 scrollbar-thin scrollbar-thumb-slate-700">
                         {/* Title Input */}
-                        <div className="mb-6">
-                            <h3 className="text-[11px] font-bold text-slate-500 uppercase mb-2">0. Cover Title</h3>
+                        <div className="mb-8">
+                            <h3 className="text-sm font-bold text-slate-500 uppercase mb-3">0. Cover Title</h3>
                             <input 
                                 type="text" 
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 placeholder="Enter title for the slide deck..." 
-                                className="w-full px-4 py-3 rounded-xl border border-slate-800 bg-slate-950 text-slate-200 text-xs outline-none focus:border-blue-500 transition-all shadow-inner" 
+                                className="w-full px-5 py-3.5 rounded-xl border border-slate-800 bg-slate-950 text-slate-200 text-sm outline-none focus:border-blue-500 transition-all shadow-inner" 
                             />
                         </div>
 
-                        <div className="mb-6">
+                        <div className="mb-8">
                             <button 
                                 onClick={handleClearSelections}
-                                className="w-full text-[10px] font-black bg-amber-600 hover:bg-amber-500 text-white py-2.5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-900/20 uppercase tracking-widest"
+                                className="w-full text-xs font-black bg-amber-600 hover:bg-amber-500 text-white py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-900/20 uppercase tracking-widest"
                             >
-                                <RotateCcw className="w-3 h-3" /> Clear Selections
+                                <RotateCcw className="w-4 h-4" /> Clear Selections
                             </button>
                         </div>
 
@@ -312,13 +312,13 @@ const NotebookLMLab = () => {
                         <GridSection label="7. Specific Notes" items={CONFIG.notes} isMulti={true} />
 
                         {/* Custom Notes */}
-                        <div className="mt-8 pt-4 border-t border-slate-800">
-                            <h3 className="text-[11px] font-bold text-slate-500 uppercase mb-2">8. Custom Requirements</h3>
+                        <div className="mt-10 pt-6 border-t border-slate-800">
+                            <h3 className="text-sm font-bold text-slate-500 uppercase mb-3">8. Custom Requirements</h3>
                             <textarea 
                                 value={customNotes}
                                 onChange={(e) => setCustomNotes(e.target.value)}
                                 placeholder="Add specific requirements or additional details here..." 
-                                className="w-full h-32 p-4 rounded-xl border border-slate-800 bg-slate-950 text-slate-200 text-xs outline-none focus:border-blue-500 transition-all resize-none shadow-inner scrollbar-thin scrollbar-thumb-slate-700"
+                                className="w-full h-40 p-5 rounded-xl border border-slate-800 bg-slate-950 text-slate-200 text-sm outline-none focus:border-blue-500 transition-all resize-none shadow-inner scrollbar-thin scrollbar-thumb-slate-700"
                             ></textarea>
                         </div>
                     </div>
@@ -334,29 +334,29 @@ const NotebookLMLab = () => {
 
                 {/* Right Panel */}
                 <div className="flex-1 flex flex-col bg-slate-950/50">
-                    <div className="px-4 py-3 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
-                        <span className="text-[10px] text-slate-500 font-mono tracking-widest uppercase">Prompt Output</span>
+                    <div className="px-5 py-4 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
+                        <span className="text-xs text-slate-500 font-mono tracking-widest uppercase">Prompt Output</span>
                         <button 
                             onClick={handleCopy}
-                            className={`text-[10px] font-black px-4 py-1.5 rounded-lg transition-all uppercase shadow-md ${
+                            className={`text-xs font-black px-5 py-2 rounded-lg transition-all uppercase shadow-md ${
                                 copyStatus === 'COPIED' ? 'bg-green-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-500'
                             }`}
                         >
                             {copyStatus}
                         </button>
                     </div>
-                    <div className="p-6 overflow-y-auto flex-grow font-mono text-[13px] text-blue-100/80 leading-relaxed scrollbar-thin scrollbar-thumb-slate-700">
+                    <div className="p-8 overflow-y-auto flex-grow font-mono text-[15px] text-blue-100/80 leading-relaxed scrollbar-thin scrollbar-thumb-slate-700">
                         <pre className="whitespace-pre-wrap">{promptOutput || 'Configuration will appear here...'}</pre>
                     </div>
                 </div>
             </div>
 
             {/* Help Note */}
-            <div className="px-4 py-2 bg-slate-900 border border-slate-800 rounded-xl flex items-center gap-3">
-                <div className="p-1.5 bg-blue-600/10 rounded-lg">
-                    <Info className="w-4 h-4 text-blue-500" />
+            <div className="px-5 py-3 bg-slate-900 border border-slate-800 rounded-xl flex items-center gap-4">
+                <div className="p-2 bg-blue-600/10 rounded-lg">
+                    <Info className="w-5 h-5 text-blue-500" />
                 </div>
-                <p className="text-[10px] text-slate-400 leading-tight">
+                <p className="text-xs text-slate-400 leading-tight">
                     <strong className="text-slate-200 uppercase">Usage:</strong> Use the buttons on the left to configure your prompt. The output prompt is optimized for NotebookLM's Audio/Slide overview feature.
                 </p>
             </div>
