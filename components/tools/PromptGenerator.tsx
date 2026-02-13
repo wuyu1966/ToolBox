@@ -50,6 +50,33 @@ const INITIAL_NEGATIVE = [
     "虚假的人像模式模糊，CGI/插画感"
 ];
 
+interface InputFieldProps {
+    label: string;
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+    list?: string[];
+}
+
+const InputField = ({ label, name, value, onChange, list }: InputFieldProps) => (
+    <div className="mb-2">
+        <label className="block text-xs font-medium text-slate-400 mb-0.5">{label}</label>
+        <input 
+            type="text" 
+            name={name}
+            value={value}
+            onChange={onChange}
+            list={list ? `${name}-options` : undefined}
+            className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors text-xs"
+        />
+        {list && (
+            <datalist id={`${name}-options`}>
+                {list.map(opt => <option key={opt} value={opt} />)}
+            </datalist>
+        )}
+    </div>
+);
+
 const PromptGenerator = () => {
     const [formData, setFormData] = useState(INITIAL_DATA);
     const [furniture, setFurniture] = useState<string[]>(INITIAL_FURNITURE);
@@ -300,25 +327,6 @@ const PromptGenerator = () => {
         });
     };
 
-    const InputField = ({ label, name, list }: { label: string, name: keyof typeof INITIAL_DATA, list?: string[] }) => (
-        <div className="mb-2">
-            <label className="block text-xs font-medium text-slate-400 mb-0.5">{label}</label>
-            <input 
-                type="text" 
-                name={name}
-                value={formData[name]}
-                onChange={handleInputChange}
-                list={list ? `${name}-options` : undefined}
-                className="w-full px-2 py-1 bg-slate-950 border border-slate-800 rounded-lg shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 text-slate-200 placeholder-slate-600 transition-colors text-xs"
-            />
-            {list && (
-                <datalist id={`${name}-options`}>
-                    {list.map(opt => <option key={opt} value={opt} />)}
-                </datalist>
-            )}
-        </div>
-    );
-
     return (
         <div className="max-w-7xl mx-auto space-y-3 pb-10">
             {/* Header / Nav Actions */}
@@ -347,46 +355,46 @@ const PromptGenerator = () => {
                     {/* Scene */}
                     <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
                         <h3 className="font-bold text-sm text-slate-200 mb-2">场景</h3>
-                        <InputField label="场景描述" name="scene" />
+                        <InputField label="场景描述" name="scene" value={formData.scene} onChange={handleInputChange} />
                     </div>
 
                     {/* Subject */}
                     <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
                         <h3 className="font-bold text-sm text-slate-200 mb-2">主体</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            <InputField label="性别表现" name="gender" list={["女性", "男性", "中性"]} />
-                            <InputField label="年龄段" name="age" />
-                            <InputField label="种族" name="race" list={["东亚", "欧洲", "非洲", "美洲", "其他"]} />
-                            <InputField label="身材" name="bodyType" />
-                            <InputField label="肤色" name="skinTone" list={["浅中性色调", "深中性色调", "冷色调", "暖色调"]} />
+                            <InputField label="性别表现" name="gender" value={formData.gender} onChange={handleInputChange} list={["女性", "男性", "中性"]} />
+                            <InputField label="年龄段" name="age" value={formData.age} onChange={handleInputChange} />
+                            <InputField label="种族" name="race" value={formData.race} onChange={handleInputChange} list={["东亚", "欧洲", "非洲", "美洲", "其他"]} />
+                            <InputField label="身材" name="bodyType" value={formData.bodyType} onChange={handleInputChange} />
+                            <InputField label="肤色" name="skinTone" value={formData.skinTone} onChange={handleInputChange} list={["浅中性色调", "深中性色调", "冷色调", "暖色调"]} />
                         </div>
 
                         <div className="mt-2">
                             <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">发型</h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                                <InputField label="长度" name="hairLength" />
-                                <InputField label="样式" name="hairStyle" />
-                                <InputField label="颜色" name="hairColor" />
+                                <InputField label="长度" name="hairLength" value={formData.hairLength} onChange={handleInputChange} />
+                                <InputField label="样式" name="hairStyle" value={formData.hairStyle} onChange={handleInputChange} />
+                                <InputField label="颜色" name="hairColor" value={formData.hairColor} onChange={handleInputChange} />
                             </div>
                         </div>
 
                         <div className="mt-2">
                             <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">姿势</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <InputField label="站姿" name="posture" />
-                                <InputField label="右手" name="rightHand" />
-                                <InputField label="左臂" name="leftArm" />
-                                <InputField label="躯干" name="torso" />
+                                <InputField label="站姿" name="posture" value={formData.posture} onChange={handleInputChange} />
+                                <InputField label="右手" name="rightHand" value={formData.rightHand} onChange={handleInputChange} />
+                                <InputField label="左臂" name="leftArm" value={formData.leftArm} onChange={handleInputChange} />
+                                <InputField label="躯干" name="torso" value={formData.torso} onChange={handleInputChange} />
                             </div>
                         </div>
 
                         <div className="mt-2">
                             <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">着装</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                <InputField label="上衣" name="top" />
-                                <InputField label="下装" name="bottom" />
-                                <InputField label="袜子" name="socks" />
-                                <InputField label="配饰" name="accessories" />
+                                <InputField label="上衣" name="top" value={formData.top} onChange={handleInputChange} />
+                                <InputField label="下装" name="bottom" value={formData.bottom} onChange={handleInputChange} />
+                                <InputField label="袜子" name="socks" value={formData.socks} onChange={handleInputChange} />
+                                <InputField label="配饰" name="accessories" value={formData.accessories} onChange={handleInputChange} />
                             </div>
                         </div>
                     </div>
@@ -435,9 +443,9 @@ const PromptGenerator = () => {
                     <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
                         <h3 className="font-bold text-sm text-slate-200 mb-2">灯光</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                            <InputField label="光源" name="lightSource" />
-                            <InputField label="光线质感" name="lightQuality" />
-                            <InputField label="白平衡 (K)" name="whiteBalance" />
+                            <InputField label="光源" name="lightSource" value={formData.lightSource} onChange={handleInputChange} />
+                            <InputField label="光线质感" name="lightQuality" value={formData.lightQuality} onChange={handleInputChange} />
+                            <InputField label="白平衡 (K)" name="whiteBalance" value={formData.whiteBalance} onChange={handleInputChange} />
                         </div>
                     </div>
 
@@ -445,29 +453,29 @@ const PromptGenerator = () => {
                     <div className="border border-slate-800 rounded-lg p-3 bg-slate-950/30">
                         <h3 className="font-bold text-sm text-slate-200 mb-2">相机</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                            <InputField label="模式" name="cameraModel" list={["佳能相机", "尼康相机", "索尼相机", "富士相机"]} />
-                            <InputField label="等效焦距 (mm)" name="focalLength" />
+                            <InputField label="模式" name="cameraModel" value={formData.cameraModel} onChange={handleInputChange} list={["佳能相机", "尼康相机", "索尼相机", "富士相机"]} />
+                            <InputField label="等效焦距 (mm)" name="focalLength" value={formData.focalLength} onChange={handleInputChange} />
                             
                             <div className="md:col-span-2">
                                 <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">曝光</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                                    <InputField label="光圈 (f)" name="aperture" />
-                                    <InputField label="感光度 (ISO)" name="iso" />
-                                    <InputField label="快门速度 (秒)" name="shutterSpeed" />
-                                    <InputField label="曝光补偿 (EV)" name="exposureComp" />
+                                    <InputField label="光圈 (f)" name="aperture" value={formData.aperture} onChange={handleInputChange} />
+                                    <InputField label="感光度 (ISO)" name="iso" value={formData.iso} onChange={handleInputChange} />
+                                    <InputField label="快门速度 (秒)" name="shutterSpeed" value={formData.shutterSpeed} onChange={handleInputChange} />
+                                    <InputField label="曝光补偿 (EV)" name="exposureComp" value={formData.exposureComp} onChange={handleInputChange} />
                                 </div>
                             </div>
                             
-                            <InputField label="对焦" name="focus" />
-                            <InputField label="景深" name="depthOfField" />
+                            <InputField label="对焦" name="focus" value={formData.focus} onChange={handleInputChange} />
+                            <InputField label="景深" name="depthOfField" value={formData.depthOfField} onChange={handleInputChange} />
                             
                             <div className="md:col-span-2">
                                 <h4 className="font-semibold text-slate-400 mb-1 text-xs uppercase tracking-wider">构图</h4>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-                                    <InputField label="宽高比" name="aspectRatio" list={["9:16", "1:1", "3:2", "16:9", "4:3"]} />
-                                    <InputField label="角度" name="angle" />
+                                    <InputField label="宽高比" name="aspectRatio" value={formData.aspectRatio} onChange={handleInputChange} list={["9:16", "1:1", "3:2", "16:9", "4:3"]} />
+                                    <InputField label="角度" name="angle" value={formData.angle} onChange={handleInputChange} />
                                     <div className="md:col-span-1">
-                                        <InputField label="构图备注" name="compositionNote" />
+                                        <InputField label="构图备注" name="compositionNote" value={formData.compositionNote} onChange={handleInputChange} />
                                     </div>
                                 </div>
                             </div>
