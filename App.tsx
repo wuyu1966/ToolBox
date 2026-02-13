@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HashRouter, Routes, Route, NavLink, Navigate, useLocation } from 'react-router-dom';
 import { 
     Link as LinkIcon, 
@@ -16,7 +16,9 @@ import {
     Wrench,
     Wand2,
     Brain,
-    Sparkles
+    Sparkles,
+    PanelLeftClose,
+    PanelLeftOpen
 } from 'lucide-react';
 
 // Tool Components
@@ -64,8 +66,8 @@ const Navigation = ({ onClose }: { onClose?: () => void }) => {
                         }`
                     }
                 >
-                    <item.icon className={`mr-3 h-5 w-5 ${item.label === 'Color Pallete' ? '' : ''}`} />
-                    {item.label}
+                    <item.icon className="mr-3 h-5 w-5 shrink-0" />
+                    <span className="truncate">{item.label}</span>
                 </NavLink>
             ))}
         </nav>
@@ -74,8 +76,14 @@ const Navigation = ({ onClose }: { onClose?: () => void }) => {
 
 const Layout = ({ children }: { children?: React.ReactNode }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [desktopSidebarVisible, setDesktopSidebarVisible] = useState(true);
     const location = useLocation();
     
+    // Auto-hide mobile sidebar on navigation
+    useEffect(() => {
+        setSidebarOpen(false);
+    }, [location.pathname]);
+
     // Get current title based on path
     const getTitle = () => {
         switch(location.pathname) {
@@ -98,15 +106,28 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
     return (
         <div className="flex h-screen overflow-hidden bg-slate-950 text-slate-100 font-sans selection:bg-blue-500/30">
             {/* Desktop Sidebar */}
-            <div className="hidden md:flex md:w-64 md:flex-col border-r border-slate-800 bg-slate-900/50 backdrop-blur-xl">
-                <div className="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
-                    <div className="flex items-center flex-shrink-0 px-6 mb-8">
-                        <div className="p-2 bg-blue-600/10 rounded-lg mr-3">
-                            <Wrench className="h-6 w-6 text-blue-500" />
+            <div 
+                className={`hidden md:flex md:flex-col border-r border-slate-800 bg-slate-900/50 backdrop-blur-xl transition-all duration-300 ease-in-out ${
+                    desktopSidebarVisible ? 'md:w-64' : 'md:w-0'
+                } overflow-hidden`}
+            >
+                <div className="flex flex-col flex-grow pt-5 pb-4 min-w-[16rem]">
+                    <div className="flex items-center justify-between flex-shrink-0 px-6 mb-8">
+                        <div className="flex items-center">
+                            <div className="p-2 bg-blue-600/10 rounded-lg mr-3">
+                                <Wrench className="h-6 w-6 text-blue-500" />
+                            </div>
+                            <span className="text-xl font-bold tracking-tight text-slate-100">ToolBox</span>
                         </div>
-                        <span className="text-xl font-bold tracking-tight text-slate-100">ToolBox</span>
+                        <button 
+                            onClick={() => setDesktopSidebarVisible(false)}
+                            className="p-1.5 text-slate-500 hover:text-slate-200 hover:bg-slate-800 rounded-md transition-all"
+                            title="Collapse Sidebar"
+                        >
+                            <PanelLeftClose className="h-5 w-5" />
+                        </button>
                     </div>
-                    <div className="flex-1 flex flex-col">
+                    <div className="flex-1 flex flex-col overflow-y-auto scrollbar-thin scrollbar-thumb-slate-800">
                         <Navigation />
                     </div>
                 </div>
@@ -139,7 +160,25 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
 
             {/* Main Content */}
             <div className="flex flex-col flex-1 w-0 overflow-hidden bg-slate-950">
-                <div className="md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 border-b border-slate-800 flex items-center p-4 bg-slate-900">
+                {/* Desktop Header for collapsed state */}
+                <div className="hidden md:flex items-center p-4 bg-slate-900/30 border-b border-slate-800/50">
+                    {!desktopSidebarVisible && (
+                        <button
+                            onClick={() => setDesktopSidebarVisible(true)}
+                            className="p-2 text-slate-400 hover:text-blue-400 hover:bg-slate-800 rounded-lg transition-all mr-4"
+                            title="Expand Sidebar"
+                        >
+                            <PanelLeftOpen className="h-5 w-5" />
+                        </button>
+                    )}
+                    <div className="flex flex-col">
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none mb-1">Tool</span>
+                        <h1 className="text-lg font-bold text-slate-100 tracking-tight leading-none">{getTitle()}</h1>
+                    </div>
+                </div>
+
+                {/* Mobile Header */}
+                <div className="md:hidden flex items-center p-4 bg-slate-900 border-b border-slate-800">
                     <button
                         type="button"
                         className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-slate-400 hover:text-slate-200 focus:outline-none"
