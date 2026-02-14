@@ -46,7 +46,7 @@ const Navigation = ({ onClose }: { onClose?: () => void }) => {
         { path: '/colors', icon: Palette, label: 'Color Pallete' },
         { path: '/splitter', icon: Scissors, label: 'Text Splitter' },
         { path: '/timer', icon: Timer, label: 'Timer' },
-        { path: '/jina', icon: LinkIcon, label: 'Jina Reader' },
+        { path: '/jina', icon: LinkIcon, label: 'HTML to MD' },
         { path: '/md-to-js', icon: Code2, label: 'MD to String' },
         { path: '/tts', icon: Mic, label: 'TTS' },
     ];
@@ -90,7 +90,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
             case '/generator': return 'Portrait Prompt Gen';
             case '/notebook-lab': return 'NotebookLM Prompt 2';
             case '/notebook-lm': return 'NotebookLM Prompt';
-            case '/jina': return 'Jina Reader';
+            case '/jina': return 'HTML to MD';
             case '/md-to-js': return 'MD to JS String';
             case '/splitter': return 'Text Splitter';
             case '/timer': return 'Timer';
