@@ -140,12 +140,12 @@ const ColorDebugger = () => {
                 <div className="min-h-full w-full flex items-center justify-center p-4 md:p-8">
                     <div className="w-full max-w-3xl mx-auto flex flex-col items-center z-10">
                         
-                        <div className="mb-6 md:mb-10 text-center">
-                            <h1 className="text-3xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Palette Preview</h1>
+                        <div className="mb-4 md:mb-8 text-center">
+                            <h1 className="text-2xl md:text-4xl font-bold tracking-tight" style={{ color: 'var(--c-title)' }}>Palette Preview</h1>
                         </div>
 
                         {/* Shapes Container */}
-                        <div className="flex justify-center items-center gap-3 md:gap-6 mb-6 md:mb-12 flex-wrap">
+                        <div className="flex justify-center items-center gap-3 md:gap-5 mb-4 md:mb-8 flex-wrap">
                             <svg width="64" height="64" viewBox="0 0 100 100" className="w-10 h-10 md:w-16 md:h-16 transform hover:scale-110 transition-transform drop-shadow-lg" style={{ color: 'var(--c-shape-1)' }}>
                                 <circle cx="50" cy="50" r="48" fill="currentColor" />
                             </svg>
@@ -167,15 +167,15 @@ const ColorDebugger = () => {
                         </div>
 
                         {/* Content Section */}
-                        <div className="w-full rounded-2xl p-5 md:p-8 border border-slate-700/50">
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-6">
+                        <div className="w-full rounded-2xl p-4 md:p-6 border border-slate-700/50">
+                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-4">
                                 <h2 className="text-xl font-bold" style={{ color: 'var(--c-title)' }}>Detailed Analysis</h2>
                                 <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest" style={{ backgroundColor: 'var(--c-data)', color: 'var(--c-bg)' }}>
                                     Live Data Feed
                                 </span>
                             </div>
 
-                            <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--c-body)' }}>
+                            <p className="text-sm md:text-base leading-relaxed mb-4" style={{ color: 'var(--c-body)' }}>
                                 This is a live preview of your color palette. You can see how the background, 
                                 titles, body text, and UI shapes interact with each other in a real-world layout.
                                 Adjust the values on the left to fine-tune your design's accessibility and visual appeal.
